@@ -1,27 +1,32 @@
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import { Hero } from './components/Hero'
+
 import { Header } from './components/Header'
-import { StatsCounter } from './components/StatsCounter'
-import { HowItWorks } from './components/HowItWorks'
-import { CashoutMethods } from './components/CashoutMethods'
-import { WhyChoose } from './WhyChoose'
-import { CTASection } from './CTASection'
-import { Footer } from './Footer'
+import { Footer } from './components/Footer'
+import { Home } from './Pages/Home'
+import { Login } from './components/Account/Login'
+import { Signup } from './components/Account/Signup'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-    < Header />
-      <Hero />
-      <StatsCounter />
-      <HowItWorks />
-      <CashoutMethods />
-      <WhyChoose  />
-      <CTASection />
-      <Footer />
+      <Routes>
+        {/* LOGIN PAGE (only login show) */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        {/* HOME & OTHER PAGES */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <Home />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
     </>
   )
 }

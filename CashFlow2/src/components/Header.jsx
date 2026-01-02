@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
     const [open, setOpen] = useState(false);
@@ -29,12 +30,12 @@ export const Header = () => {
 
           {/* ACTIONS */}
           <div className="hidden lg:flex items-center gap-6">
-            <button className="text-gray-300 hover:text-white">
+            <Link to="/Login" className="text-gray-300 hover:text-white">
               Sign In
-            </button>
-            <button className="px-6 py-2 rounded-xl bg_gradient from-cyan-200 to-green-400 text-black font-normal">
+            </Link>
+            <Link to="/Signup" className="px-6 py-2 rounded-xl bg_gradient from-cyan-200 to-green-400 text-black font-normal">
               Start Earning
-            </button>
+            </Link>
           </div>
 
           {/* MOBILE MENU BUTTON */}
