@@ -25,7 +25,7 @@ export const Header = () => {
             <a className="hover:text-white transition">Offers</a>
             <a className="hover:text-white transition">How to Earn</a>
             <a className="hover:text-white transition">Rewards</a>
-            <a className="hover:text-white transition">Leaderboard</a>
+            <Link to="/Leaderboard" className="hover:text-white transition">Leaderboard</Link>
           </nav>
 
           {/* ACTIONS */}
