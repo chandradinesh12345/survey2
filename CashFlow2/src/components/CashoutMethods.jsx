@@ -39,11 +39,11 @@ export const CashoutMethods = () => {
         </p>
 
         {/* Methods */}
-        <div className="mt-12 flex flex-wrap justify-center gap-5">
+        <div className="mt-12 lg:flex phone_view_cashout_section flex-wrap justify-center gap-5">
           {methods.map((item, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 px-6 py-4 rounded-xl
+              className="phone_view_item_box flex items-center gap-3 px-6 py-4 rounded-xl
                          border border-white/10 bg-[#0b1225]
                          hover:border-green-500/40 transition"
             >

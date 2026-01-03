@@ -6,8 +6,12 @@ import { Footer } from './components/Footer'
 import { Home } from './Pages/Home'
 import { Login } from './components/Account/Login'
 import { Signup } from './components/Account/Signup'
+import { ForgotPassword } from './components/Account/ForgotPassword'
+import { ContactUs } from './Pages/ContactUs'
 import { Dashboard } from './Dashboard/Dashboard'
 import { Leaderboard } from './Dashboard/Leaderboard'
+import { Rewards } from './Dashboard/Rewards'
+import { CashOut } from './Dashboard/CashOut'
 
 function App() {
   return (
@@ -16,7 +20,12 @@ function App() {
         {/* LOGIN PAGE (only login show) */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
+
         <Route path="/Leaderboard" element={<Leaderboard />} />
+        <Route path="/Rewards" element={<Rewards />} />
+        <Route path="/CashOut" element={<CashOut />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
 

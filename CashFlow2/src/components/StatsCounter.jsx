@@ -28,11 +28,11 @@ function Counter({ end, duration = 2000 }) {
 export const StatsCounter = () => {
   return (
     <section className="border-t border-b border-white/10 bg-[#060b18]">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16 phone_view_stats_cout_padding">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
           {/* CARD 1 */}
-          <div className="flex justify-center items-center gap-5">
+          <div className="flex justify-center items-center gap-5 phone_view_justify">
             <div className="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center">
               <DollarSign className="text-cyan-400 w-7 h-7" />
             </div>
@@ -45,7 +45,7 @@ export const StatsCounter = () => {
           </div>
 
           {/* CARD 2 */}
-          <div className="flex justify-center items-center gap-5">
+          <div className="flex justify-center items-center gap-5 phone_view_justify border_t_b">
             <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center">
               <Users className="text-blue-400 w-7 h-7" />
             </div>
@@ -58,7 +58,7 @@ export const StatsCounter = () => {
           </div>
 
           {/* CARD 3 */}
-          <div className="flex justify-center items-center gap-5">
+          <div className="flex justify-center items-center gap-5 phone_view_justify">
             <div className="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center">
               <CheckCircle className="text-indigo-400 w-7 h-7" />
             </div>

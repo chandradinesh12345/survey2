@@ -26,4 +26,32 @@
   .container {
     max-width: 1000px;
   }
+  .phone_view_font {
+    font-size: 30px;
+  }
+  .phone_view_justify {
+    justify-content: space-between;
+  }
+  .border_t_b {
+            border-top: 1px solid #ffffff26;
+        border-bottom: 1px solid #ffffff26;
+        padding: 30px 0;
+  }
+  .phone_view_stats_cout_padding {
+    padding: 30px 20px;
+  }
+  .phone_view_cashout_section .phone_view_item_box {
+            width: 47%;
+        display: inline-block;
+        text-align: center;
+        margin: 1.5%;
+  }
+  .phone_view_cashout_section .phone_view_item_box img {
+            margin: 0 auto 5px;
+  }
+  .phone_view_cta {
+            padding: 20px;
+        background: #101522;
+        font-size: 14px;
+  }
 }

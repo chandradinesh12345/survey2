@@ -4,13 +4,13 @@ import { ClipboardList, Wallet, DollarSign, ArrowRight } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
+    <section className="relative py-16 md:py-24 overflow-hidden mt-[50px]">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* LEFT */}
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-6">
+            <h1 className="phone_view_font text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-6">
               Get <span className="text-green-500">paid</span> for testing
               <br /> apps, games & surveys
             </h1>

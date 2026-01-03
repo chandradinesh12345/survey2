@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import {
   HelpCircle,
   Mail,
@@ -34,7 +35,9 @@ export const Footer = () => {
               <li className="hover:text-white cursor-pointer">Top Offers</li>
               <li className="hover:text-white cursor-pointer">How to Earn</li>
               <li className="hover:text-white cursor-pointer">Leaderboard</li>
-              <li className="hover:text-white cursor-pointer">Sign Up</li>
+              <li className="hover:text-white cursor-pointer">
+                <Link to="/Signup">Sign Up</Link>
+              </li>
             </ul>
           </div>
 
@@ -46,7 +49,7 @@ export const Footer = () => {
                 <HelpCircle size={16} /> Help Center
               </li>
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <Mail size={16} /> Contact Us
+                <Link to="/ContactUs" className='flex item-center gap-2'><Mail size={16} /> Contact Us</Link>
               </li>
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
                 <FileText size={16} /> Terms of Service
@@ -73,7 +76,7 @@ export const Footer = () => {
         <div className="border-t border-white/10 mt-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
           <p>© 2025 CashFlow. All rights reserved.</p>
 
-          <div className="flex items-center gap-6 text-gray-400">
+          <div className="lg:flex md:block text-center items-center gap-6 text-gray-400">
             <div className="flex items-center gap-2">
               <Lock size={14} />
               256-bit SSL Encrypted

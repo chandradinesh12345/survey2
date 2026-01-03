@@ -42,7 +42,7 @@ export const Login = () => {
           </div>
 
           {/* Password */}
-          <div className="text-left mb-6">
+          <div className="text-left mb-2">
             <label className="block text-sm text-gray-300 mb-2">
               Password
             </label>
@@ -67,6 +67,13 @@ export const Login = () => {
                 )}
             </div>
           </div>
+          {/* forgot password */}
+        <Link
+          to="/ForgotPassword"
+          className="block text-left mb-5 text-xs text-gray-400 hover:text-white transition"
+        >
+          Forgot Password
+        </Link>
 
           {/* Button */}
           <button className="w-full h-12 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition">

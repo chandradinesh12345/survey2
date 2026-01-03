@@ -24,8 +24,9 @@ export const Header = () => {
           <nav className="hidden lg:flex items-center text-sm gap-10 text-gray-400">
             <a className="hover:text-white transition">Offers</a>
             <a className="hover:text-white transition">How to Earn</a>
-            <a className="hover:text-white transition">Rewards</a>
-            <Link to="/Leaderboard" className="hover:text-white transition">Leaderboard</Link>
+            <Link to="/CashOut" className="hover:text-white transition pointer-events-none">CashOut</Link>
+            <Link to="/Rewards" className="hover:text-white transition pointer-events-none">Rewards</Link>
+            <Link to="/Leaderboard" className="hover:text-white transition pointer-events-none">Leaderboard</Link>
           </nav>
 
           {/* ACTIONS */}
@@ -53,7 +54,7 @@ export const Header = () => {
         <div className="fixed inset-0 z-50 bg-[#070c1a]">
           <div className="flex items-center justify-between px-4 h-16 border-b border-white/10">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-cyan-400 to-green-400 flex items-center justify-center text-black font-bold">
+              <div className="w-9 h-9 rounded-xl bg_gradient from-cyan-400 to-green-400 flex items-center justify-center text-black font-bold">
                 $
               </div>
               <span className="text-white font-semibold text-lg">
@@ -68,11 +69,21 @@ export const Header = () => {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-10 px-6 py-12 text-gray-400 text-lg">
-            <a>Offers</a>
-            <a>How to Earn</a>
-            <a>Rewards</a>
-            <a>Leaderboard</a>
+          <nav className="flex flex-col gap-2 px-6 py-4 text-gray-400 text-lg">
+            <Link to="/CashOut" className="hover:text-white transition pointer-events-none">CashOut</Link>
+            <Link to="/Rewards" className="hover:text-white transition pointer-events-none">Rewards</Link>
+            <Link to="/Leaderboard" className="hover:text-white transition pointer-events-none">Leaderboard</Link>
+
+            {/* ACTIONS */}
+            <div className="">
+              <Link to="/Login" className="w-full mb-[4px] px-8 py-1.5 text-center block rounded-xl border border-white/20 text-white-500 font-normal hover:bg-white/5 transition">
+                Sign In
+              </Link>
+              <Link to="/Signup" className="px-6 py-2 rounded-xl bg_gradient w-full block text-center from-cyan-200 to-green-400 text-black font-normal">
+                Start Earning
+              </Link>
+            </div>
+
           </nav>
         </div>
       )}
