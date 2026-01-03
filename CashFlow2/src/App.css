@@ -9,9 +9,21 @@
   margin-left: auto;
   margin-right: auto;
 }
-
+.card-glow:hover {
+  box-shadow: 0 0 40px rgba(56,189,248,0.15);
+}
 @media (min-width: 1400px) {
   .container {
     max-width: 1400px;
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    max-width: 1300px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: 1000px;
   }
 }

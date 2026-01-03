@@ -6,6 +6,7 @@ import { Footer } from './components/Footer'
 import { Home } from './Pages/Home'
 import { Login } from './components/Account/Login'
 import { Signup } from './components/Account/Signup'
+import { Dashboard } from './Dashboard/Dashboard'
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         {/* LOGIN PAGE (only login show) */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
 
         {/* HOME & OTHER PAGES */}
         <Route
