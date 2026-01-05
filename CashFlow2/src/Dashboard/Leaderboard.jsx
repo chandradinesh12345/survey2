@@ -8,6 +8,7 @@ import {
   Trophy,
   Star,
 } from "lucide-react";
+import { Footer } from '../components/Footer';
 
 export const Leaderboard = () => {
   return (
@@ -34,8 +35,8 @@ export const Leaderboard = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
                 {[
                     { icon: Crown, label: "1st Place", prize: "$100 Bonus", color: "cyan" },
-                    { icon: Trophy, label: "2nd Place", prize: "$50 Bonus", color: "blue" },
-                    { icon: Medal, label: "3rd Place", prize: "$25 Bonus", color: "warning" },
+                    { icon: Trophy, label: "2nd Place", prize: "$50 Bonus", color: "purple" },
+                    { icon: Medal, label: "3rd Place", prize: "$25 Bonus", color: "yellow" },
                     { icon: Gift, label: "Top 10", prize: "$10 Bonus", color: "green" },
                 ].map((item, i) => (
                     <div
@@ -123,7 +124,8 @@ export const Leaderboard = () => {
                 </div>
 
             </div>
-            </section>
+        </section>
+        <Footer />
     </>
   )
 }

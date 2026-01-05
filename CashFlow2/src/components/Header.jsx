@@ -21,12 +21,14 @@ export const Header = () => {
           </div>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden lg:flex items-center text-sm gap-10 text-gray-400">
-            <a className="hover:text-white transition">Offers</a>
-            <a className="hover:text-white transition">How to Earn</a>
-            <Link to="/CashOut" className="hover:text-white transition pointer-events-none">CashOut</Link>
-            <Link to="/Rewards" className="hover:text-white transition pointer-events-none">Rewards</Link>
-            <Link to="/Leaderboard" className="hover:text-white transition pointer-events-none">Leaderboard</Link>
+          <nav className="hidden lg:flex items-center text-sm gap-6 text-gray-400">
+            <Link to="/" className="hover:text-white hover:bg-[#131d34] rounded-xl py-2 px-2 transition">Home</Link>
+            <Link to="/Dashboard" className="hover:text-white hover:bg-[#131d34] rounded-xl py-2 px-2 transition">Dashboard</Link>
+            <a className="hhover:text-white hover:bg-[#131d34] rounded-xl py-2 px-2 transition">Offers</a>
+            <a className="hover:text-white hover:bg-[#131d34] rounded-xl py-2 px-2 transition">How to Earn</a>
+            <Link to="/CashOut" className="hover:text-white hover:bg-[#131d34] rounded-xl py-2 px-2 transition">Cashout</Link>
+            <Link to="/Rewards" className="hover:text-white hover:bg-[#131d34] rounded-xl py-2 px-2 transition">Rewards</Link>
+            <Link to="/Leaderboard" className="hover:text-white hover:bg-[#131d34] rounded-xl py-2 px-2 transition">Leaderboard</Link>
           </nav>
 
           {/* ACTIONS */}

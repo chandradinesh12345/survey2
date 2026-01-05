@@ -38,7 +38,7 @@ export const CashOut = () => {
 
                     {/* HEADER */}
                     <div className="text-center mb-10">
-                    <h1 className="text-3xl font-bold">Cash Out Your Earnings</h1>
+                    <h1 className="text-3xl font-bold]">Cash Out Your Earnings</h1>
                     <p className="text-gray-400 mt-2">
                         Choose your preferred payment method and withdraw instantly
                     </p>

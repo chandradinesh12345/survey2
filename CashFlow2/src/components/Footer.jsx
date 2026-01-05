@@ -34,7 +34,9 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="hover:text-white cursor-pointer">Top Offers</li>
               <li className="hover:text-white cursor-pointer">How to Earn</li>
-              <li className="hover:text-white cursor-pointer">Leaderboard</li>
+              <li className="hover:text-white cursor-pointer">
+                <Link to="/Leaderboard">Leaderboard</Link>
+              </li>
               <li className="hover:text-white cursor-pointer">
                 <Link to="/Signup">Sign Up</Link>
               </li>
@@ -46,16 +48,16 @@ export const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Support</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <HelpCircle size={16} /> Help Center
+                <Link to="/HelpCenter" className='flex item-center gap-2'><HelpCircle size={16} /> Help Center</Link>
               </li>
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
                 <Link to="/ContactUs" className='flex item-center gap-2'><Mail size={16} /> Contact Us</Link>
               </li>
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <FileText size={16} /> Terms of Service
+                <Link to="/TermsOfService" className='flex item-center gap-2'><FileText size={16} /> Terms of Service</Link>
               </li>
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <ShieldCheck size={16} /> Privacy Policy
+                <Link to="/PrivacyPolicy" className='flex item-center gap-2'><ShieldCheck size={16} /> Privacy Policy</Link>  
               </li>
             </ul>
           </div>

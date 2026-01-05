@@ -152,7 +152,7 @@ export const FeaturedOffers = () => {
                   <div
                     className="group relative bg-[#0b1220] rounded-2xl overflow-hidden
                     border border-white/10 hover:border-cyan-400/40
-                    hover:-translate-y-2 transition-all duration-300"
+                    hover:-translate-y-2 transition-all duration-300 mt-[10px]"
                   >
                     {/* IMAGE */}
                     <img

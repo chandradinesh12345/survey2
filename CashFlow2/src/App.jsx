@@ -8,10 +8,13 @@ import { Login } from './components/Account/Login'
 import { Signup } from './components/Account/Signup'
 import { ForgotPassword } from './components/Account/ForgotPassword'
 import { ContactUs } from './Pages/ContactUs'
+import { HelpCenter } from './Pages/HelpCenter'
 import { Dashboard } from './Dashboard/Dashboard'
 import { Leaderboard } from './Dashboard/Leaderboard'
 import { Rewards } from './Dashboard/Rewards'
 import { CashOut } from './Dashboard/CashOut'
+import { PrivacyPolicy } from './Pages/PrivacyPolicy'
+import { TermsOfService } from './Pages/TermsOfService'
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/HelpCenter" element={<HelpCenter />} />
+        <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+        <Route path="/TermsOfService" element={<TermsOfService />} />
 
         <Route path="/Leaderboard" element={<Leaderboard />} />
         <Route path="/Rewards" element={<Rewards />} />

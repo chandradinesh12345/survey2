@@ -64,7 +64,7 @@ export const Offerwalls = () => {
                         <div
                         className="h-[160px] bg-[#121212] rounded-xl p-4
                         border border-white/10 hover:border-cyan-400/40
-                        hover:-translate-y-1 transition-all duration-300"
+                        hover:-translate-y-1 transition-all duration-300 mt-[10px]"
                         >
                         <div className="h-16 flex items-center justify-center mb-3 offerwall_logo">
                             <img

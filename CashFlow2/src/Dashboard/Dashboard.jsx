@@ -3,6 +3,7 @@ import { ThreeCard } from './ThreeCard'
 import { FeaturedOffers } from './FeaturedOffers'
 import { Offerwalls } from './Offerwalls'
 import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
 
 export const Dashboard = () => {
   return (
@@ -11,6 +12,7 @@ export const Dashboard = () => {
         <ThreeCard />
         <FeaturedOffers />
         <Offerwalls />
+        <Footer />
     </>
   )
 }
