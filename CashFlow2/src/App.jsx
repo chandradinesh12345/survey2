@@ -11,6 +11,8 @@ import { ContactUs } from './Pages/ContactUs'
 import { HelpCenter } from './Pages/HelpCenter'
 import { Dashboard } from './Dashboard/Dashboard'
 import { Leaderboard } from './Dashboard/Leaderboard'
+import { Profile } from './Dashboard/Profile'
+import { ActivityHistory } from './Dashboard/ActivityHistory'
 import { Rewards } from './Dashboard/Rewards'
 import { CashOut } from './Dashboard/CashOut'
 import { PrivacyPolicy } from './Pages/PrivacyPolicy'
@@ -34,6 +36,8 @@ function App() {
         <Route path="/CashOut" element={<CashOut />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/Profile" element={<Profile />} />
+        <Route path="/ActivityHistory" element={<ActivityHistory />} />
 
         {/* HOME & OTHER PAGES */}
         <Route

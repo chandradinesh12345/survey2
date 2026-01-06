@@ -5,14 +5,14 @@ import { Autoplay } from "swiper/modules";
 import { Lock } from "lucide-react";
 
 const partners = [
-  { name: "AdGate Media", logo: "/img/adgatemedia.svg", rating: 5 },
-  { name: "OfferToro", logo: "/img/offertoro.png", rating: 5 },
-  { name: "Lootably", logo: "/img/lootably.png", rating: 5 },
-  { name: "TimeWall", logo: "/img/timewall.png", rating: 5 },
-  { name: "Adtogame", logo: "/img/adtogame.png", rating: 5 },
+  { name: "AdGate Media", logo: "../src/assets/img/adgatemedia.svg", rating: 5 },
+  { name: "OfferToro", logo: "../src/assets/img/offertoro.png", rating: 5 },
+  { name: "Lootably", logo: "../src/assets/img/lootably.png", rating: 5 },
+  { name: "TimeWall", logo: "../src/assets/img/timewall.png", rating: 5 },
+  { name: "Adtogame", logo: "../src/assets/img/adtogame.png", rating: 5 },
   { locked: true },
-  { name: "Cpx", logo: "/img/cpx.svg", rating: 5 },
-  { name: "Notik", logo: "/img/notik.png", rating: 5 },
+  { name: "Cpx", logo: "../src/assets/img/cpx.svg", rating: 5 },
+  { name: "Notik", logo: "../src/assets/img/notik.png", rating: 5 },
 ];
 
 export const Offerwalls = () => {

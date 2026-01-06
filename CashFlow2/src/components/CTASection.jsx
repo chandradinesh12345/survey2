@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowRight } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 export const CTASection = () => {
   return (
@@ -26,10 +27,10 @@ export const CTASection = () => {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               {/* Primary Button */}
-              <button className="group flex items-center justify-between gap-6 bg-green-500 text-black px-8 py-4 rounded-xl font-semibold w-full sm:w-auto hover:scale-[1.03] transition">
+              <Link to="/Signup" className="group flex items-center justify-between gap-6 bg-green-500 text-black px-8 py-4 rounded-xl font-semibold w-full sm:w-auto hover:scale-[1.03] transition">
                 Create Free Account
                 <ArrowRight />
-              </button>
+              </Link>
             </div>
           </div>
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { ClipboardList, Wallet, DollarSign, ArrowRight } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 
 export const Hero = () => {
@@ -41,9 +42,9 @@ export const Hero = () => {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="h-12 px-8 rounded-xl bg-green-500 text-black font-semibold flex items-center justify-center gap-2 hover:bg-green-600 transition">
+              <Link to="/Signup" className="h-12 px-8 rounded-xl bg-green-500 text-black font-semibold flex items-center justify-center gap-2 hover:bg-green-600 transition">
                 Start Earning Now <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
 
               <button className="h-12 px-8 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition">
                 Learn More

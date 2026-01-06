@@ -4,15 +4,17 @@ import {
   Bell,
   MessageCircle,
   User,
+  LogOut,
   Wallet,
 } from "lucide-react";
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
-  const [chatOpen, setChatOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [chatTab, setChatTab] = useState("community"); // FIX ✅
+
+  const [chatOpen, setChatOpen] = useState(false);
+const [chatTab, setChatTab] = useState("community");
 
   const closeAll = () => {
     setNotifOpen(false);
@@ -79,7 +81,7 @@ export const Header = () => {
 
               {notifOpen && (
                 <div
-                  className="absolute right-0 mt-4 w-[350px]
+                  className="absolute right-0 mt-4 w-[320px]
                   bg-[#0d1728] rounded-xl border border-white/10
                   shadow-2xl overflow-hidden
                   transform transition-all duration-300 ease-out
@@ -87,20 +89,20 @@ export const Header = () => {
                 >
 
                   {/* HEADER */}
-                  <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#060a13]">
-                    <h4 className="text-white text-lg font-normal">
+                  <div className="flex items-center justify-between px-3 py-3 border-b border-white/10 bg-[#060a13]">
+                    <h4 className="text-white text-sm font-normal">
                       Notifications
                     </h4>
 
                     <div className="flex items-center gap-3">
-                      <button className="text-cyan-400 text-sm hover:underline">
+                      <button className="text-cyan-400 text-[12px] hover:underline">
                         Mark all read
                       </button>
 
                       {/* CLOSE ICON */}
                       <button
                         onClick={() => setNotifOpen(false)}
-                        className="text-gray-400 text-lg hover:text-white transition cursor-pointer"
+                        className="text-gray-400 text-sm hover:text-white transition cursor-pointer"
                       >
                         ✕
                       </button>
@@ -115,14 +117,14 @@ export const Header = () => {
                   >
 
                     {/* ITEM 1 */}
-                    <div className="group flex gap-4 px-6 py-4 border-b border-white/10 hover:bg-white/5 transition">
+                    <div className="group flex gap-4 px-3 py-3 border-b border-white/10 hover:bg-white/5 transition">
                       <div className="w-10 h-10 rounded-xl bg-green-500/15 flex items-center justify-center text-green-400">
                         📈
                       </div>
 
                       <div className="flex-1 relative">
                         <div className="flex items-center gap-2">
-                          <p className="text-white font-medium">
+                          <p className="text-white text-sm">
                             Offer Completed!
                           </p>
                           <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
@@ -148,14 +150,14 @@ export const Header = () => {
                     </div>
 
                     {/* ITEM 2 */}
-                    <div className="group flex gap-4 px-6 py-4 border-b border-white/10 hover:bg-white/5 transition">
+                    <div className="group flex gap-4 px-3 py-3 border-b border-white/10 hover:bg-white/5 transition">
                       <div className="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-400">
                         👥
                       </div>
 
                       <div className="flex-1 relative">
                         <div className="flex items-center gap-2">
-                          <p className="text-white font-medium">
+                          <p className="text-white text-sm">
                             New Referral Signup
                           </p>
                           <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
@@ -180,14 +182,14 @@ export const Header = () => {
                     </div>
 
                     {/* ITEM 3 */}
-                    <div className="group flex gap-4 px-6 py-4 border-b border-white/10 hover:bg-white/5 transition">
+                    <div className="group flex gap-4 px-3 py-3 border-b border-white/10 hover:bg-white/5 transition">
                       <div className="w-10 h-10 rounded-xl bg-yellow-500/15 flex items-center justify-center text-yellow-400">
                         🎁
                       </div>
 
                       <div className="flex-1 relative">
                         <div className="flex items-center gap-2">
-                          <p className="text-white font-medium">
+                          <p className="text-white text-sm">
                             Double Rewards Weekend!
                           </p>
                           <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
@@ -212,13 +214,13 @@ export const Header = () => {
                     </div>
 
                     {/* EXTRA ITEMS (SCROLL ME JAYENGE) */}
-                    <div className="flex gap-4 px-6 py-4">
+                    <div className="flex gap-4 px-3 py-3">
                       <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-gray-300">
                         ✔
                       </div>
 
                       <div>
-                        <p className="text-white font-medium">
+                        <p className="text-white text-sm">
                           Cashout Processed
                         </p>
                         <p className="text-gray-400 text-sm mt-1">
@@ -230,7 +232,7 @@ export const Header = () => {
                   </div>
 
                   {/* FOOTER */}
-                  <div className="px-6 py-4 text-center border-t border-white/10">
+                  <div className="px-6 py-3 text-center border-t border-white/10">
                     <button className="text-cyan-400 text-sm hover:underline">
                       View All Notifications
                     </button>
@@ -251,120 +253,151 @@ export const Header = () => {
               >
                 <MessageCircle size={16} />
               </button>
-              <div
-                className={`fixed top-0 right-0 h-screen w-[420px] z-[60]
-                bg-[#070c1a] border-l border-white/10
-                transform transition-transform duration-300 ease-in-out
-                ${chatOpen ? "translate-x-0" : "translate-x-full"}
-                `}
-              >
-                {/* HEADER */}
-                <div className="flex items-center justify-between px-5 h-16 border-b border-white/10">
-                  <h3 className="text-white text-lg font-semibold">Chat</h3>
+
+                              
+            <div
+              className={`fixed top-0 right-0 h-screen w-[420px] z-[60]
+              bg-[#070c1a] border-l border-white/10
+              flex flex-col
+              transform transition-transform duration-300 ease-in-out
+              ${chatOpen ? "translate-x-0" : "translate-x-full"}
+            `}
+            >
+              {/* HEADER */}
+              <div className="h-16 px-5 flex items-center justify-between border-b border-white/10 shrink-0">
+                <h3 className="text-white text-lg font-semibold">Chat</h3>
+                <button
+                  onClick={() => setChatOpen(false)}
+                  className="text-gray-400 hover:text-white text-xl"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* TABS */}
+              <div className="px-5 py-4 border-b border-white/10 shrink-0">
+                <div className="flex bg-[#131d35] rounded-xl p-1">
                   <button
-                    onClick={() => setChatOpen(false)}
-                    className="text-gray-400 hover:text-white text-xl"
+                    onClick={() => setChatTab("community")}
+                    className={`flex-1 py-2 rounded-lg text-sm transition
+                    ${chatTab === "community"
+                      ? "bg-[#080c17] text-white"
+                      : "text-gray-400 hover:text-white"}
+                    `}
                   >
-                    ✕
+                    👥 Community
+                  </button>
+
+                  <button
+                    onClick={() => setChatTab("support")}
+                    className={`flex-1 py-2 rounded-lg text-sm transition
+                    ${chatTab === "support"
+                      ? "bg-[#080c17] text-white"
+                      : "text-gray-400 hover:text-white"}
+                    `}
+                  >
+                    🎧 Support
                   </button>
                 </div>
 
-                {/* TABS */}
-                <div className="px-5 py-4">
-                  <div className="flex bg-[#0b1220] rounded-xl p-1">
-                    <button
-                      onClick={() => setChatTab("community")}
-                      className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg transition
-                      ${chatTab === "community"
-                        ? "bg-[#111a33] text-white"
-                        : "text-gray-400 hover:text-white"}
-                      `}
-                    >
-                      👥 Community
-                    </button>
+                {chatTab === "community" && (
+                  <p className="text-gray-400 text-sm mt-3">
+                    127 members online
+                  </p>
+                )}
+              </div>
 
-                    <button
-                      onClick={() => setChatTab("support")}
-                      className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg transition
-                      ${chatTab === "support"
-                        ? "bg-[#111a33] text-white"
-                        : "text-gray-400 hover:text-white"}
-                      `}
-                    >
-                      🎧 Support
-                    </button>
-                  </div>
+              {/* MESSAGES */}
+              <div
+                className="flex-1 min-h-0 px-5 py-4 space-y-6 overflow-y-auto
+                scrollbar-thin scrollbar-thumb-white/10
+                scrollbar-thumb-rounded-full scrollbar-track-transparent"
+              >
 
-                  {chatTab === "community" && (
-                    <p className="text-gray-400 text-sm mt-3">
-                      127 members online
-                    </p>
-                  )}
-                </div>
-
-                {/* MESSAGES */}
-                <div className="flex-1 overflow-y-auto px-5 space-y-5 pb-32">
-
-                  {/* MESSAGE 1 */}
-                  <div className="flex gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#1e293b] flex items-center justify-center text-white">
-                      SM
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-400 mb-1">
-                        Sarah M. · 10:30 AM
-                      </p>
-                      <div className="bg-[#111a33] text-white px-4 py-3 rounded-2xl max-w-[280px]">
-                        Just completed the SurveyJunkie offer, got $5 instantly! 🎉
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* MESSAGE 2 */}
-                  <div className="flex gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#1e293b] flex items-center justify-center text-white">
-                      MD
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-400 mb-1">
-                        Mike D. · 10:32 AM
-                      </p>
-                      <div className="bg-[#111a33] text-white px-4 py-3 rounded-2xl max-w-[280px]">
-                        Anyone tried the new GameRewards offer?
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* USER MESSAGE (RIGHT) */}
-                  <div className="flex justify-end">
-                    <div className="bg-cyan-500 text-black px-4 py-3 rounded-2xl max-w-[260px]">
-                      Yeah it's great! Made $8 yesterday
-                    </div>
-                  </div>
-
-                  {/* SUPPORT MESSAGE */}
-                  {chatTab === "support" && (
-                    <div className="bg-green-500/10 text-white px-4 py-3 rounded-2xl max-w-[300px]">
-                      Hi 👋 Welcome to CashFlow support. How can I help you today?
-                    </div>
-                  )}
-                </div>
-
-                {/* INPUT (FIXED BOTTOM) */}
-                <div className="absolute bottom-0 left-0 w-full px-4 py-3
-                  bg-[#070c1a] border-t border-white/10">
-                  <div className="flex items-center gap-3 bg-[#0b1220] rounded-xl px-4 py-2">
-                    <input
-                      type="text"
-                      placeholder="Type a message..."
-                      className="flex-1 bg-transparent outline-none text-white placeholder-gray-400"
+                {/* ================= COMMUNITY CHAT ================= */}
+                {chatTab === "community" && (
+                  <>
+                    <CommunityMessage
+                      avatar="SM"
+                      name="Sarah M."
+                      time="10:30 AM"
+                      text="Just completed the SurveyJunkie offer, got $5 instantly! 🎉"
                     />
-                    <button className="text-cyan-400 hover:text-cyan-300">
-                      ➤
-                    </button>
-                  </div>
+
+                    <CommunityMessage
+                      avatar="MD"
+                      name="Mike D."
+                      time="10:32 AM"
+                      text="Anyone tried the new GameRewards offer?"
+                    />
+
+                    <div className="flex justify-end items-end gap-3">
+                      <div className="bg-cyan-500 text-black text-sm px-4 py-3 rounded-2xl max-w-[260px]">
+                        Yeah it's great! Made $8 yesterday
+                      </div>
+                      <div className="w-9 h-9 rounded-full bg-[#1e293b] flex items-center justify-center text-white">
+                        AD
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* ================= SUPPORT CHAT ================= */}
+                {chatTab === "support" && (
+                  <>
+                    {/* SYSTEM / SUPPORT MESSAGE (ONLY HERE) */}
+                    <div className="flex gap-3">
+                      <div className="w-9 h-9 rounded-full bg-green-500 flex items-center justify-center text-black font-semibold">
+                        CS
+                      </div>
+                      <div className="bg-green-500/10 text-white text-sm px-4 py-3 rounded-2xl max-w-[300px]">
+                        Hi 👋 Welcome to CashFlow support. How can I help you today?
+                      </div>
+                    </div>
+
+                    {/* USER MESSAGE */}
+                    <div className="flex justify-end items-end gap-3">
+                      <div className="bg-cyan-500 text-black text-sm px-4 py-3 rounded-2xl max-w-[260px]">
+                        I have a question about my withdrawal
+                      </div>
+                      <div className="w-9 h-9 rounded-full bg-[#1e293b] flex items-center justify-center text-white">
+                        AD
+                      </div>
+                    </div>
+
+                    {/* SUPPORT REPLY */}
+                    <div className="flex gap-3">
+                      <div className="w-9 h-9 rounded-full bg-green-500 flex items-center justify-center text-black font-semibold">
+                        CS
+                      </div>
+                      <div className="bg-green-500/10 text-white text-sm px-4 py-3 rounded-2xl max-w-[300px]">
+                        Sure 👍 Please tell me your registered email or transaction ID.
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* INPUT */}
+              <div className="sticky bottom-0 left-0 px-4 py-3 bg-[#070c1a] border-t border-white/10 shrink-0">
+                <div className="flex items-center gap-3 bg-[#0b1220] rounded-xl px-4 py-2">
+                  <input
+                    type="text"
+                    placeholder={
+                      chatTab === "community"
+                        ? "Send a message to community..."
+                        : "Send a message to support..."
+                    }
+                    className="flex-1 bg-transparent outline-none text-white placeholder-gray-400"
+                  />
+                  <button className="py-1 px-2 rounded-md bg-cyan-400 hover:text-white cursor-pointer">
+                    ➤
+                  </button>
                 </div>
               </div>
+            </div>
+
+
 
 
             {/* PROFILE */}
@@ -381,15 +414,16 @@ export const Header = () => {
               </button>
 
               {profileOpen && (
-                <div className="absolute right-0 mt-4 w-52 bg-[#0b1220] rounded-2xl border border-white/10 shadow-xl p-2">
+                <div className="absolute right-0 mt-4 w-52 bg-[#0b1220] rounded-xl border border-white/10 shadow-xl p-2">
                   <Link
                     to="/Profile"
-                    className="block px-4 py-2 rounded-lg hover:bg-white/5"
+                    className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-teal-400 hover:text-black"
                   >
-                    Profile
+                    <User size={14} /> Profile
                   </Link>
-                  <button className="w-full mt-2 px-4 py-2 rounded-xl bg-teal-400 text-black font-medium">
-                    Logout
+                  <div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-white/10"></div>
+                  <button className="w-full rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-teal-400 text-black flex gap-2 items-center hover:text-black text-left">
+                    <LogOut size={14} /> Logout
                   </button>
                 </div>
               )}
@@ -440,3 +474,22 @@ export const Header = () => {
     </>
   );
 };
+
+
+function CommunityMessage({ avatar, name, time, text }) {
+  return (
+    <div className="flex gap-3">
+      <div className="w-9 h-9 rounded-full bg-[#1e293b] flex items-center justify-center text-white">
+        {avatar}
+      </div>
+      <div>
+        <p className="text-sm text-gray-400 mb-1">
+          {name} · {time}
+        </p>
+        <div className="bg-[#111a33] text-sm text-white px-4 py-3 rounded-2xl max-w-[280px]">
+          {text}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Wallet, TrendingUp, Calendar } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 export const ThreeCard = () => {
   return (
@@ -24,14 +25,14 @@ export const ThreeCard = () => {
                         </div>
                         </div>
 
-                        <button
-                        className="mt-6 w-full bg-gradient-to-r from-cyan-500 to-teal-400
-                        text-black font-semibold py-3 rounded-xl
-                        hover:opacity-90 hover:shadow-lg hover:shadow-cyan-500/30
+                        <Link to="/CashOut"
+                        className="mt-6 block w-full bg-gradient-to-r from-cyan-500 to-teal-400
+                        text-black font-semibold py-2 rounded-xl
+                        hover:opacity-90 hover:shadow-lg text-sm text-center hover:shadow-cyan-500/30
                         transition-all"
                         >
                         Cash Out →
-                        </button>
+                        </Link>
                     </div>
 
                     {/* TODAY EARNINGS */}
