@@ -13,6 +13,8 @@ import { Dashboard } from './Dashboard/Dashboard'
 import { Leaderboard } from './Dashboard/Leaderboard'
 import { Profile } from './Dashboard/Profile'
 import { ActivityHistory } from './Dashboard/ActivityHistory'
+import { FeaturedOffersPages } from './Dashboard/FeaturedOffersPages'
+import { OfferwallsPages } from './Dashboard/OfferwallsPages'
 import { Rewards } from './Dashboard/Rewards'
 import { CashOut } from './Dashboard/CashOut'
 import { PrivacyPolicy } from './Pages/PrivacyPolicy'
@@ -37,6 +39,8 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/FeaturedOffersPages" element={<FeaturedOffersPages />} />
+        <Route path="/OfferwallsPages" element={<OfferwallsPages />} />
         <Route path="/ActivityHistory" element={<ActivityHistory />} />
 
         {/* HOME & OTHER PAGES */}

@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const partners = [
   { name: "AdGate Media", logo: "../src/assets/img/adgatemedia.svg", rating: 5 },
@@ -25,9 +26,9 @@ export const Offerwalls = () => {
               <h2 className="text-white text-xl font-semibold flex items-center gap-2">
                 ★ Offerwalls
               </h2>
-              <button className="text-gray-400 text-[12px] hover:text-white transition">
-                836+ Offers Available →
-              </button>
+              <Link to="/OfferwallsPages" className="text-gray-400 text-[12px] hover:text-white transition">
+                View All →
+              </Link>
             </div>
 
             {/* SLIDER */}
@@ -49,7 +50,7 @@ export const Offerwalls = () => {
                         /* LOCKED CARD */
                         <div
                         className="h-[160px] bg-gradient-to-br from-blue-900 to-blue-700
-                        rounded-xl p-4 text-center text-white flex flex-col justify-center"
+                        rounded-xl p-4 text-center text-white flex flex-col mt-[10px] justify-center"
                         >
                         <Lock className="mx-auto mb-2" />
                         <p className="text-sm font-semibold">

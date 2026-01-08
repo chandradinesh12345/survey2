@@ -2,6 +2,7 @@ import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
+import { Link } from 'react-router-dom';
 
 
 import { FileText, Gamepad2, Smartphone, Video } from "lucide-react";
@@ -127,9 +128,9 @@ export const FeaturedOffers = () => {
               <h2 className="text-white text-xl font-semibold flex items-center gap-2">
                 ⚡ Featured Offers
               </h2>
-              <button className="text-gray-400 text-[12px] hover:text-white transition">
+              <Link to="/FeaturedOffersPages" className="text-gray-400 text-[12px] hover:text-white transition">
                 View All →
-              </button>
+              </Link>
             </div>
 
             {/* SLIDER */}
