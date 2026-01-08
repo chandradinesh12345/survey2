@@ -6,6 +6,8 @@ import {
   User,
   LogOut,
   Wallet,
+  Settings2,
+  ExternalLink,
 } from "lucide-react";
 
 export const Header = () => {
@@ -233,9 +235,9 @@ const [chatTab, setChatTab] = useState("community");
 
                   {/* FOOTER */}
                   <div className="px-6 py-3 text-center border-t border-white/10">
-                    <button className="text-cyan-400 text-sm hover:underline">
+                    <Link to="/NotificationPages" className="text-cyan-400 text-sm hover:underline">
                       View All Notifications
-                    </button>
+                    </Link>
                   </div>
                 </div>
               )}
@@ -421,6 +423,21 @@ const [chatTab, setChatTab] = useState("community");
                   >
                     <User size={14} /> Profile
                   </Link>
+
+                  <Link
+                    to="/Affilliates"
+                    className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-teal-400 hover:text-black"
+                  >
+                    <ExternalLink size={14} /> Affilliates
+                  </Link>
+
+                  <Link
+                    to="/Settings"
+                    className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-teal-400 hover:text-black"
+                  >
+                    <Settings2 size={14} /> Settings
+                  </Link>
+
                   <div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-white/10"></div>
                   <button className="w-full rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-teal-400 text-black flex gap-2 items-center hover:text-black text-left">
                     <LogOut size={14} /> Logout

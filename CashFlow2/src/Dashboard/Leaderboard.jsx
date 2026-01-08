@@ -61,12 +61,12 @@ export const Leaderboard = () => {
                 {/* YOUR RANK */}
                 <div
                 className="bg-gradient-to-r from-cyan-500/10 to-blue-600/10
-                rounded-2xl p-5 flex items-center justify-between
+                rounded-2xl p-5 block md:flex items-center justify-between
                 border border-cyan-400/20 mb-10
                 hover:shadow-[0_0_40px_rgba(56,189,248,0.2)]
                 transition"
                 >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center md:justify-start gap-4 md:mb-0 mb-3">
                     <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-black font-bold">
                     🙂
                     </div>
@@ -78,14 +78,14 @@ export const Leaderboard = () => {
                     </div>
                 </div>
 
-                <div className="text-right">
+                <div className="text-center md:text-right">
                     <p className="text-2xl font-bold text-cyan-400">#47</p>
                     <p className="text-gray-400 text-sm">$127.50 this month</p>
                 </div>
                 </div>
 
                 {/* MONTHLY RANKINGS */}
-                <div className="bg-[#0b1220] rounded-2xl p-5 border border-white/10">
+                <div className="bg-[#0b1220] rounded-2xl p-2 md:p-5 border border-white/10">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-semibold text-lg">Monthly Rankings</h3>
                     <span className="text-sm text-gray-400">December 2025</span>
@@ -100,21 +100,21 @@ export const Leaderboard = () => {
                 ].map((user, i) => (
                     <div
                     key={i}
-                    className="flex items-center justify-between py-4
+                    className="flex items-center justify-between py-1 md:py-4
                     border-b border-white/5 last:border-0
                     hover:bg-white/5 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)]
-                    transition rounded-xl px-3"
+                    transition rounded-xl px-0 md:px-3"
                     >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-1 md:gap-3">
                         <span className="w-8 text-gray-400">#{user.rank}</span>
                         <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
                         <user.icon className="w-4 h-4 text-yellow-400" />
                         </div>
-                        <p className="font-medium">{user.name}</p>
+                        <p className="text-[10px] md:text-sm">{user.name}</p>
                     </div>
 
                     <div className="text-right">
-                        <p className="text-green-400 font-semibold">
+                        <p className="text-green-400 font-semibold text-[10px] md:text-sm">
                         {user.amount}
                         </p>
                         <p className="text-xs text-gray-400">+12%</p>

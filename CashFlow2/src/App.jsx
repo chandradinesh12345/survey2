@@ -19,6 +19,9 @@ import { Rewards } from './Dashboard/Rewards'
 import { CashOut } from './Dashboard/CashOut'
 import { PrivacyPolicy } from './Pages/PrivacyPolicy'
 import { TermsOfService } from './Pages/TermsOfService'
+import { Settings } from './Dashboard/Settings'
+import { Affilliates } from './Dashboard/Affilliates'
+import { NotificationPages } from './Dashboard/NotificationPages'
 
 function App() {
   return (
@@ -36,6 +39,9 @@ function App() {
         <Route path="/Leaderboard" element={<Leaderboard />} />
         <Route path="/Rewards" element={<Rewards />} />
         <Route path="/CashOut" element={<CashOut />} />
+        <Route path="/Settings" element={<Settings />} />
+        <Route path="/Affilliates" element={<Affilliates />} />
+        <Route path="/NotificationPages" element={<NotificationPages />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/Profile" element={<Profile />} />

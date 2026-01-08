@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   User,
   DollarSign,
@@ -64,10 +65,10 @@ export const Profile = () => {
             </div>
 
 
-          <button className="flex items-center gap-2 px-5 py-2 rounded-xl border border-white/15 hover:bg-white/5 transition">
+          <Link to="/Settings" className="flex items-center cursor-pointer gap-2 px-5 py-2 rounded-xl border border-white/15 hover:bg-white/5 transition">
             <Settings size={16} />
             Edit Profile
-          </button>
+          </Link>
         </div>
 
         {/* STATS */}
@@ -90,7 +91,7 @@ export const Profile = () => {
         </div>
 
         {/* LOWER SECTION */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-1">
 
           {/* REFERRAL */}
           <div className="bg-[#0b1220] border border-white/10 rounded-3xl p-6 space-y-5">
@@ -132,7 +133,7 @@ export const Profile = () => {
           </div>
 
           {/* ACCOUNT SETTINGS */}
-          <div className="bg-[#0b1220] border border-white/10 rounded-3xl p-6 space-y-5">
+          {/* <div className="bg-[#0b1220] border border-white/10 rounded-3xl p-6 space-y-5">
             <h3 className="flex items-center gap-2 text-lg font-semibold">
               <Shield size={18} className="text-cyan-400" />
               Account Settings
@@ -168,7 +169,7 @@ export const Profile = () => {
                 Change Password
               </button>
             </div>
-          </div>
+          </div> */}
 
         </div>
         <ActivityHistory />

@@ -12,6 +12,7 @@
 .card-glow:hover {
   box-shadow: 0 0 40px rgba(56,189,248,0.15);
 }
+
 @media (min-width: 1400px) {
   .container {
     max-width: 1400px;
