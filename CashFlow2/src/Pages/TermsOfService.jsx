@@ -1,11 +1,10 @@
 import React from 'react'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+
 
 export const TermsOfService = () => {
   return (
     <>
-        <Header />
+
         <section className="min-h-screen mt-[50px] bg-gradient-to-b from-[#070b14] to-[#02050a] text-white py-16">
             <div className="max-w-4xl mx-auto px-4">
 
@@ -131,7 +130,7 @@ export const TermsOfService = () => {
 
             </div>
         </section>
-        <Footer />
+  
     </>
   )
 }

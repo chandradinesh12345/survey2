@@ -1,6 +1,5 @@
 import React from 'react'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+
 import { useState } from "react";
 import {
   Wallet,
@@ -32,7 +31,7 @@ export const CashOut = () => {
 
   return (
     <>
-        <Header />  
+       
             <section className="min-h-screen mt-[50px] bg-gradient-to-b from-[#070b14] to-[#02050a] text-white py-16">
                 <div className="max-w-5xl mx-auto px-4">
 
@@ -235,7 +234,7 @@ export const CashOut = () => {
 
                 </div>
                 </section>
-        <Footer />
+     
     </>
   )
 }

@@ -128,7 +128,7 @@ export const FeaturedOffers = () => {
               <h2 className="text-white text-xl font-semibold flex items-center gap-2">
                 ⚡ Featured Offers
               </h2>
-              <Link to="/FeaturedOffersPages" className="text-gray-400 text-[12px] hover:text-white transition">
+              <Link to="/featured-offers-pages" className="text-gray-400 text-[12px] hover:text-white transition">
                 View All →
               </Link>
             </div>

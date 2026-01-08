@@ -1,12 +1,12 @@
 import React from 'react'
-import { Header } from '../components/Header'
+
 import { Gift, Ticket, CheckCircle } from "lucide-react";
-import { Footer } from '../components/Footer';
+
 
 export const Rewards = () => {
   return (
     <>
-      <Header />
+  
       <section className="min-h-screen bg-gradient-to-b  mt-[50px] from-[#070b14] to-[#02050a] text-white py-14">
       <div className="container mx-auto px-4">
 
@@ -147,7 +147,7 @@ export const Rewards = () => {
         </div>
       </div>
     </section>
-    <Footer />
+ 
     </>
   )
 }

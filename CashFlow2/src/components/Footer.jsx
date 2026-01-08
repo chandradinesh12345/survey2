@@ -48,16 +48,16 @@ export const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Support</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <Link to="/HelpCenter" className='flex item-center gap-2'><HelpCircle size={16} /> Help Center</Link>
+                <Link to="/help-center" className='flex item-center gap-2'><HelpCircle size={16} /> Help Center</Link>
               </li>
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <Link to="/ContactUs" className='flex item-center gap-2'><Mail size={16} /> Contact Us</Link>
+                <Link to="/contact-us" className='flex item-center gap-2'><Mail size={16} /> Contact Us</Link>
               </li>
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <Link to="/TermsOfService" className='flex item-center gap-2'><FileText size={16} /> Terms of Service</Link>
+                <Link to="/terms-of-service" className='flex item-center gap-2'><FileText size={16} /> Terms of Service</Link>
               </li>
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <Link to="/PrivacyPolicy" className='flex item-center gap-2'><ShieldCheck size={16} /> Privacy Policy</Link>  
+                <Link to="/privacy-policy" className='flex item-center gap-2'><ShieldCheck size={16} /> Privacy Policy</Link>  
               </li>
             </ul>
           </div>

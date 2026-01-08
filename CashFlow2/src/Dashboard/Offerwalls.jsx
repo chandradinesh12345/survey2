@@ -26,7 +26,7 @@ export const Offerwalls = () => {
               <h2 className="text-white text-xl font-semibold flex items-center gap-2">
                 ★ Offerwalls
               </h2>
-              <Link to="/OfferwallsPages" className="text-gray-400 text-[12px] hover:text-white transition">
+              <Link to="/offerwalls-pages" className="text-gray-400 text-[12px] hover:text-white transition">
                 View All →
               </Link>
             </div>

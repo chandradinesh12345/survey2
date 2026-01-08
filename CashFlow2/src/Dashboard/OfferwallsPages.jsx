@@ -21,13 +21,11 @@ const partners = [
   { name: "Notik", logo: "../src/assets/img/notik.png", rating: 5 },
 ];
 
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
 
 export const OfferwallsPages = () => {
   return (
     <>
-    <Header />
+
         <section className="mt-20 mb-12">
             <div className="container mx-auto px-4">
 
@@ -106,8 +104,8 @@ export const OfferwallsPages = () => {
                 </div>
 
             </div>
-            </section>
-    <Footer />
+        </section>
+
     </>
   )
 }

@@ -1,12 +1,11 @@
 import React from 'react'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+
 import { Copy, Users, ChartNoAxesCombined, Wallet } from 'lucide-react'
 
 export const Affilliates = () => {
   return (
     <>
-        <Header />
+     
             <div className='mt-22 mb-12 max-w-5xl mx-auto px-4'>
                 {/* REFERRAL */}
                 <div className="bg-[#0b1220] text-white border border-white/10 rounded-3xl p-6 space-y-5">
@@ -156,9 +155,6 @@ export const Affilliates = () => {
 
             </div>
 
-            
-
-        <Footer />
 
     </>
   )

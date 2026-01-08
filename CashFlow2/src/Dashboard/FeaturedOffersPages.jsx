@@ -1,6 +1,5 @@
 import React from 'react'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+
 
 import { Link } from "react-router-dom";
 import { FileText, Gamepad2, Smartphone, Video } from "lucide-react";
@@ -191,7 +190,7 @@ const offers = [
 export const FeaturedOffersPages = () => {
   return (
     <>
-        <Header />
+        
             <section className="mt-20 mb-12">
                 <div className="container mx-auto px-4">
 
@@ -260,8 +259,8 @@ export const FeaturedOffersPages = () => {
                     </div>
 
                 </div>
-                </section>
-        <Footer />
+          </section>
+ 
     </>
   )
 }

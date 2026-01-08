@@ -1,8 +1,7 @@
 
 import React, { useState } from "react";
 import { Bell, Check, Trash2 } from "lucide-react";
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+
 
 
 const notificationsData = [
@@ -46,7 +45,7 @@ export const NotificationPages = () => {
     });
   return (
     <>
-        <Header />
+     
         <div className="min-h-screen bg-[#070c1a] text-white px-4 pt-22 pb-10">
       <div className="max-w-4xl mx-auto space-y-8">
 
@@ -135,7 +134,7 @@ export const NotificationPages = () => {
         </div>
       </div>
     </div>
-        <Footer />
+       
     </>
   )
 }

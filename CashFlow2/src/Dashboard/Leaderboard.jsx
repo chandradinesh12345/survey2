@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '../components/Header'
+
 import {
   Crown,
   Medal,
@@ -8,12 +8,12 @@ import {
   Trophy,
   Star,
 } from "lucide-react";
-import { Footer } from '../components/Footer';
+
 
 export const Leaderboard = () => {
   return (
     <>
-        <Header />
+      
         <section className="py-16 mt-[50px] bg-gradient-to-b from-[#070b14] to-[#02050a] text-white">
             <div className="max-w-5xl mx-auto px-4">
 
@@ -125,7 +125,7 @@ export const Leaderboard = () => {
 
             </div>
         </section>
-        <Footer />
+       
     </>
   )
 }

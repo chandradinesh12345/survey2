@@ -1,12 +1,11 @@
 import React from 'react'
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
+
 
 export const ContactUs = () => {
   return (
     <>
-    <Header />
+ 
         <section className="min-h-screen bg-gradient-to-b from-[#070b14] mt-[50px] to-[#02050a] text-white py-16">
       <div className="max-w-6xl mx-auto px-4">
 
@@ -142,7 +141,7 @@ export const ContactUs = () => {
         </div>
       </div>
     </section>
-    <Footer />
+
     </>
   )
 }

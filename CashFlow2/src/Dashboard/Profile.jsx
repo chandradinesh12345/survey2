@@ -10,14 +10,13 @@ import {
   Star,
   Settings
 } from "lucide-react";
-import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
+
 import { ActivityHistory } from './ActivityHistory';
 
 export const Profile = () => {
   return (
     <>
-    <Header />
+    
     <div className="min-h-screen bg-[#070c1a] text-white pt-24 px-4">
       <div className="max-w-6xl mx-auto space-y-8">
 
@@ -65,7 +64,7 @@ export const Profile = () => {
             </div>
 
 
-          <Link to="/Settings" className="flex items-center cursor-pointer gap-2 px-5 py-2 rounded-xl border border-white/15 hover:bg-white/5 transition">
+          <Link to="/settings" className="flex items-center cursor-pointer gap-2 px-5 py-2 rounded-xl border border-white/15 hover:bg-white/5 transition">
             <Settings size={16} />
             Edit Profile
           </Link>
@@ -176,7 +175,7 @@ export const Profile = () => {
       </div>
     </div>
     
-    <Footer />
+   
     </>
   )
 }

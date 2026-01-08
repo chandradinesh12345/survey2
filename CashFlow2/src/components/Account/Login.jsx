@@ -69,16 +69,16 @@ export const Login = () => {
           </div>
           {/* forgot password */}
         <Link
-          to="/ForgotPassword"
+          to="/forgot-password"
           className="block text-left mb-5 text-xs text-gray-400 hover:text-white transition"
         >
           Forgot Password
         </Link>
 
           {/* Button */}
-          <button className="w-full h-12 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition">
+          <Link to="/dashboard" className="w-full h-12 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition">
             Sign In →
-          </button>
+          </Link>
 
           {/* Signup */}
           <p className="text-sm text-gray-400 mt-6">

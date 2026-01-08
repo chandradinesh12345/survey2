@@ -1,13 +1,12 @@
 import React from 'react'
 import { HelpCircle, Wallet, Shield, User, Mail } from "lucide-react";
 import { Link } from 'react-router-dom';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+
 
 export const HelpCenter = () => {
   return (
     <>
-        <Header />
+   
         <section className="min-h-screen bg-gradient-to-b mt-[50px] from-[#070b14] to-[#02050a] text-white py-16">
             <div className="max-w-6xl mx-auto px-4">
 
@@ -129,7 +128,7 @@ export const HelpCenter = () => {
 
             </div>
         </section>
-        <Footer />
+    
     </>
   )
 }

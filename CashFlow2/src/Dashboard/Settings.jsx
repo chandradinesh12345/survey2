@@ -1,6 +1,5 @@
 import React from 'react'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+
 import { User, Lock, Bell, Sliders, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
@@ -12,7 +11,7 @@ const [showNew, setShowNew] = useState(false);
 const [showConfirm, setShowConfirm] = useState(false);
   return (
     <>
-    <Header />
+
         <div className="min-h-screen bg-[#070c1a] text-white px-4 pt-22 pb-12">
       <div className="max-w-6xl mx-auto space-y-10">
 
@@ -187,7 +186,7 @@ const [showConfirm, setShowConfirm] = useState(false);
         </div>
       </div>
     </div>
-    <Footer />
+   
     </>
   )
 }
