@@ -5,15 +5,22 @@ import { Autoplay } from "swiper/modules";
 import { Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import adgate from "../assets/img/adgatemedia.svg";
+import offertoro from "../assets/img/offertoro.png";
+import lootably from "../assets/img/lootably.png";
+import timewall from "../assets/img/timewall.png";
+import adtogame from "../assets/img/adtogame.png";
+import cpx from "../assets/img/cpx.svg";
+import notik from "../assets/img/notik.png";
+
 const partners = [
-  { name: "AdGate Media", logo: "../src/assets/img/adgatemedia.svg", rating: 5 },
-  { name: "OfferToro", logo: "../src/assets/img/offertoro.png", rating: 5 },
-  { name: "Lootably", logo: "../src/assets/img/lootably.png", rating: 5 },
-  { name: "TimeWall", logo: "../src/assets/img/timewall.png", rating: 5 },
-  { name: "Adtogame", logo: "../src/assets/img/adtogame.png", rating: 5 },
+  { name: "AdGate Media", logo: adgate, rating: 5 },{ name: "OfferToro", logo: offertoro, rating: 5 },
+  { name: "Lootably", logo: lootably, rating: 5 },
+  { name: "TimeWall", logo: timewall, rating: 5 },
+  { name: "Adtogame", logo: adtogame, rating: 5 },
   { locked: true },
-  { name: "Cpx", logo: "../src/assets/img/cpx.svg", rating: 5 },
-  { name: "Notik", logo: "../src/assets/img/notik.png", rating: 5 },
+  { name: "Cpx", logo: cpx, rating: 5 },
+  { name: "Notik", logo: notik, rating: 5 },
 ];
 
 export const Offerwalls = () => {

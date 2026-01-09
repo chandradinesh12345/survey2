@@ -1,15 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {
-  User,
   DollarSign,
   Users,
   Calendar,
-  Shield,
   Copy,
   Star,
   Settings
 } from "lucide-react";
+import userIcon from '../assets/img/user_icon.jpg'
 
 import { ActivityHistory } from './ActivityHistory';
 
@@ -25,7 +24,7 @@ export const Profile = () => {
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             {/* AVATAR */}
             <div className="mx-auto sm:mx-0 w-20 h-20">
-                <img src='../src/assets/img/user_icon.jpg' className='rounded-lg w-[60px] h-[60px]' />
+                <img src={userIcon} className='rounded-lg w-[60px] h-[60px]' />
             </div>
 
             {/* USER INFO */}
