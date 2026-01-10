@@ -8,8 +8,11 @@ import {
   LogOut,
   Wallet,
   Settings2,
-  ExternalLink,
 } from "lucide-react";
+import { Login } from "../components/Account/Login"; // path apne hisaab se
+import { ForgotPassword } from "../components/Account/ForgotPassword";
+import { Signup } from "../components/Account/Signup";
+
 
 export const Header = () => {
 
@@ -52,7 +55,6 @@ const dashboardRoutes = [
   "/profile",
   "/affilliates",
   "/settings",
-  "/notifications",
   "/cashout",
   "/rewards",
   "/leaderboard",
@@ -64,7 +66,9 @@ const dashboardRoutes = [
 const isDashboard = dashboardRoutes.some((path) =>
   location.pathname.startsWith(path)
 );
-
+  const [showLogin, setShowLogin] = useState(false);
+  const [showForgot, setShowForgot] = useState(false);
+  const [showSignup, setShowSignup] = useState(false); // ✅ NEW
 
   return (
 
@@ -72,7 +76,7 @@ const isDashboard = dashboardRoutes.some((path) =>
 
     <>
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-[#070c1a]/80 backdrop-blur-md border-b border-white/10">
+      <header className="fixed top-0 left-0 w-full z-20 bg-[#070c1a]/80 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
 
           {/* LOGO */}
@@ -90,11 +94,11 @@ const isDashboard = dashboardRoutes.some((path) =>
           {!isDashboard && (
           <div className="homeview flex w-6xl justify-between">
               {/* DESKTOP NAV */}
-              <nav className="hidden lg:flex items-center text-sm gap-0 text-gray-400">
-                <Link to="/" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Home</Link>
-                <Link to="/privacy-policy" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Privacy Policy</Link>
-                <Link to="/terms-of-service" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Terms of Service</Link>
-                <Link to="/contact-us" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Contact Us</Link>
+              <nav className="hidden lg:flex items-center text-sm gap-2 text-gray-400">
+                <Link to="/" className="hover:text-white hover:bg-cyan-500/10 border border-cyan-500/10 hover:-translate-y-0.5 transition-all duration-300 hover:border-cyan py-2 px-5 rounded-xl">Home</Link>
+                <Link to="/privacy-policy" className="hover:text-white hover:bg-cyan-500/10 border border-cyan-500/10 hover:-translate-y-0.5 transition-all duration-300 hover:border-cyan py-2 px-5 rounded-xl">Privacy Policy</Link>
+                <Link to="/terms-of-service" className="hover:text-white hover:bg-cyan-500/10 border border-cyan-500/10 hover:-translate-y-0.5 transition-all duration-300 hover:border-cyan py-2 px-5 rounded-xl">Terms of Service</Link>
+                <Link to="/contact-us" className="hover:text-white hover:bg-cyan-500/10 border border-cyan-500/10 hover:-translate-y-0.5 transition-all duration-300 hover:border-cyan py-2 px-5 rounded-xl">Contact Us</Link>
               </nav>
               {/* RIGHT SIDE */}
               <div className="hidden lg:flex items-center gap-2 relative">
@@ -102,8 +106,128 @@ const isDashboard = dashboardRoutes.some((path) =>
                 
                 
                 <div className="flex gap-2 items-center w-xs"> 
-                  <Link to="/Login" className="w-full mb-[4px] px-6 py-2 text-center block rounded-xl border border-white/20 text-white font-normal hover:bg-white/5 transition"> Sign In </Link> 
-                  <Link to="/Signup" className="px-6 py-2 rounded-xl bg_gradient w-full block text-center from-cyan-200 to-green-400 text-black font-normal"> Start Earning </Link> 
+            <button
+            onClick={() => {
+                setShowLogin(true);
+                setShowForgot(false);
+              }}
+              className="group cursor-pointer relative h-12 px-8 rounded-xl text-white font-semibold inline-flex items-center justify-center
+                        border border-white/30 overflow-hidden"
+            >
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+                Sign In
+              </span>
+
+              {/* BACKGROUND FILL */}
+              <span className="absolute inset-0 bg-white scale-0 group-hover:scale-100 transition-transform duration-300 origin-center rounded-xl"></span>
+
+              {/* BORDER GLOW */}
+              <span className="absolute inset-0 rounded-xl border border-white opacity-0 group-hover:opacity-100 transition"></span>
+            </button>
+            {/* ============ LOGIN POPUP MODAL ============ */}
+              {showLogin && (
+                <div className="fixed inset-0 z-[1000] h-screen flex items-center justify-center bg-black/60 backdrop-blur-md">
+  
+                  {/* BACKDROP — click to close */}
+                  <div
+                    className="absolute inset-0"
+                    onClick={() => setShowLogin(false)}
+                  ></div>
+  
+                  {/* MODAL BOX */}
+                  <div className="relative w-full max-w-md mx-4 animate-fadeIn">
+  
+                    {/* CLOSE BUTTON */}
+                    <button
+                      onClick={() => setShowLogin(false)}
+                      className="absolute -top-4 -right-4 cursor-pointer w-10 h-10 z-[9]  rounded-full bg-white text-black text-xl shadow-lg hover:bg-gray-200"
+                    >
+                      ✕
+                    </button>
+  
+                    <Login
+                      openForgot={() => {
+                        setShowLogin(false);
+                        setShowForgot(true);
+                      }}
+                      openSignup={() => {
+                        setShowLogin(false);
+                        setShowSignup(true);
+                      }}
+                    />
+
+  
+                  </div>
+                </div>
+              )}
+  
+              {showForgot && (
+                <div className="fixed inset-0 z-[1000] h-screen flex items-center justify-center bg-black/60 backdrop-blur-md">
+  
+                  <div
+                    className="absolute inset-0"
+                    onClick={() => setShowForgot(false)}
+                  />
+  
+                  <div className="relative z-[101] w-full max-w-md mx-4 animate-fadeIn">
+  
+                    <button
+                      onClick={() => setShowForgot(false)}
+                      className="absolute -top-4 -right-4 z-[9] cursor-pointer w-10 h-10 rounded-full bg-white text-black text-xl shadow-lg"
+                    >
+                      ✕
+                    </button>
+  
+                    <ForgotPassword backToLogin={() => {
+                        setShowForgot(false);
+                        setShowLogin(true);
+                      }} />
+  
+                  </div>
+                </div>
+              )}
+
+
+            <button
+              onClick={() => {
+                setShowLogin(false);
+                setShowSignup(true);
+              }}
+              className="group cursor-pointer mr-[10px] relative h-12 px-8 rounded-xl bg_gradient text-black font-semibold inline-flex items-center justify-center gap-2 overflow-hidden"
+            >
+              <span className="relative z-10">Start Earning</span>
+              {/* SHINE EFFECT */}
+              <span className="absolute top-0 -left-1/2 w-1/2 h-full bg-white/40 skew-x-12 
+                              group-hover:left-full transition-all duration-700"></span>
+            </button>
+              {/* ============ SIGNUP POPUP MODAL ============ */}
+              {showSignup && (
+                <div className="fixed inset-0 z-[1000] h-screen flex items-center justify-center bg-black/60 backdrop-blur-md">
+
+                  <div
+                    className="absolute inset-0"
+                    onClick={() => setShowSignup(false)}
+                  />
+
+                  <div className="relative z-[101] w-full max-w-md mx-4 animate-fadeIn">
+
+                    <button
+                      onClick={() => setShowSignup(false)}
+                      className="absolute -top-4 -right-4 w-10 z-[9] cursor-pointer h-10 rounded-full bg-white text-black text-xl shadow-lg"
+                    >
+                      ✕
+                    </button>
+
+                    <Signup
+                      backToLogin={() => {
+                        setShowSignup(false);
+                        setShowLogin(true);
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
+
                 </div>
               </div>  
           </div> 
@@ -115,14 +239,14 @@ const isDashboard = dashboardRoutes.some((path) =>
             <nav className="hidden lg:flex items-center text-sm gap-0 text-gray-400">
               <Link to="/dashboard" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Dashboard</Link>
               <Link to="/featured-offers-pages" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Featured Offers</Link>
-              <Link to="/offerwalls-pages" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Offerwalls</Link>
+              
               <Link to="/cashout" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Castout</Link>
               <Link to="/rewards" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Rewards</Link>
               <Link to="/leaderboard" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Leaderboard</Link>
             </nav>
             <div className="flex items-center lg:gap-2 gap-1 relative">
               {/* BALANCE */}
-              <div className="flex items-center gap-2 px-2 py-1.5 rounded-xl bg-green-500/10 text-[#1abc55] text-md">
+              <div className="flex items-center gap-2 px-2 py-1.5 rounded-xl bg-green-500/10 text_color_brad text-md">
                 <Wallet size={16} />
                 <span className="font-semibold">$127.50</span>
               </div>
@@ -138,7 +262,7 @@ const isDashboard = dashboardRoutes.some((path) =>
                   className="relative hover:bg-green-500/20 py-3 px-2 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
                 >
                   <Bell size={16} />
-                  <span className="absolute -top-3 -right-2 bg-red-500 text-xs w-4 h-4 rounded-full flex items-center justify-center text-white">
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-xs w-4 h-4 rounded-full flex items-center justify-center text-white">
                     3
                   </span>
                 </button>
@@ -158,19 +282,6 @@ const isDashboard = dashboardRoutes.some((path) =>
                         Notifications
                       </h4>
 
-                      <div className="flex items-center gap-3">
-                        <button className="text-cyan-400 text-[12px] hover:underline">
-                          Mark all read
-                        </button>
-
-                        {/* CLOSE ICON */}
-                        <button
-                          onClick={() => setNotifOpen(false)}
-                          className="text-gray-400 text-sm hover:text-white transition cursor-pointer"
-                        >
-                          ✕
-                        </button>
-                      </div>
                     </div>
 
                     {/* LIST (ONLY 3 ITEMS VISIBLE) */}
@@ -295,12 +406,6 @@ const isDashboard = dashboardRoutes.some((path) =>
 
                     </div>
 
-                    {/* FOOTER */}
-                    <div className="px-6 py-3 text-center border-t border-white/10">
-                      <Link to="/notifications" className="text-cyan-400 text-sm hover:underline">
-                        View All Notifications
-                      </Link>
-                    </div>
                   </div>
                 )}
               </div>
@@ -483,12 +588,7 @@ const isDashboard = dashboardRoutes.some((path) =>
                       <User size={14} /> Profile
                     </Link>
 
-                    <Link
-                      to="/affilliates"
-                      className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-teal-400 hover:text-black"
-                    >
-                      <ExternalLink size={14} /> Affilliates
-                    </Link>
+                 
 
                     <Link
                       to="/settings"
@@ -537,27 +637,17 @@ const isDashboard = dashboardRoutes.some((path) =>
           <nav className="flex flex-col gap-4 px-4 py-2 text-[14px] text-gray-400 text-lg">
             {!isDashboard ? (
               <>
-                <Link to="/CashOut">Cashout</Link>
-                <Link to="/Rewards">Rewards</Link>
-                <Link to="/Leaderboard">Leaderboard</Link>
-                <Link
-                  to="/Login"
-                  className="mt-6 px-6 py-2 text-center rounded-xl border border-white/20 text-white"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  to="/Signup"
-                  className="px-6 py-2 text-center rounded-xl bg_gradient from-cyan-200 to-green-400 text-black"
-                >
-                  Start Earning
-                </Link>
+                <Link to="/" className="hover:text-white hover:bg-cyan-500/10 py-1 px-1 rounded-xl">Home</Link>
+                <Link to="/privacy-policy" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Privacy Policy</Link>
+                <Link to="/terms-of-service" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Terms of Service</Link>
+                <Link to="/contact-us" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Contact Us</Link>
+                
               </>
               ) : (
               <>
               <Link to="/dashboard" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Dashboard</Link>
               <Link to="/featured-offers-pages" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Featured Offers</Link>
-              <Link to="/offerwalls-pages" className="hover:text-white hover:bg-green-500/10 py-1 px-51rounded-xl">Offerwalls</Link>
+              
               <Link to="/cashout" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Castout</Link>
               <Link to="/rewards" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Rewards</Link>
               <Link to="/leaderboard" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Leaderboard</Link>

@@ -116,7 +116,7 @@ export const HelpCenter = () => {
                 <p className="text-gray-400 mb-5">
                     Contact our support team and we’ll get back to you shortly.
                 </p>
-                <Link to="/ContactUs"
+                <Link to="/contact-us"
                     className="bg-gradient-to-r block w-[200px] m-auto from-cyan-500 to-teal-400
                     text-black font-semibold px-6 py-3 rounded-xl
                     hover:shadow-[0_0_60px_rgba(56,189,248,0.6)]

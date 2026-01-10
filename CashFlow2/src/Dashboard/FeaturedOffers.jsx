@@ -1,7 +1,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Autoplay } from "swiper/modules";
+// import { Autoplay } from "swiper/modules";
 import { Link } from 'react-router-dom';
 
 
@@ -135,10 +135,10 @@ export const FeaturedOffers = () => {
 
             {/* SLIDER */}
             <Swiper
-              modules={[Autoplay]}
+             // modules={[Autoplay]}
               spaceBetween={20}
               slidesPerView={1.2}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
+             // autoplay={{ delay: 3000, disableOnInteraction: false }}
               breakpoints={{
                 300: { slidesPerView: 2 },
                 480: { slidesPerView: 3 },

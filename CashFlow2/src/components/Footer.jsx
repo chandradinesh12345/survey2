@@ -5,7 +5,11 @@ import {
   Mail,
   FileText,
   ShieldCheck,
-  Lock
+  Lock,
+  Facebook, 
+  Instagram,
+   Linkedin, 
+   Twitter
 } from "lucide-react";
 
 export const Footer = () => {
@@ -26,6 +30,61 @@ export const Footer = () => {
             <p className="text-sm leading-relaxed max-w-xs">
               The trusted platform to earn real cash by completing simple online tasks.
             </p>
+            
+            <div className="flex mt-5 items-center gap-3">
+
+                {/* Facebook */}
+                <Link
+                  to="/"
+                  className="group w-10 h-10 flex items-center justify-center rounded-full
+                            bg-white/10 text-gray-300
+                            hover:bg-blue-600 hover:text-white
+                            transition-all duration-300
+                            hover:scale-110 hover:shadow-lg hover:shadow-blue-600/40"
+                >
+                  <Facebook size={18} />
+                </Link>
+
+                {/* Instagram */}
+                <Link
+                  to="/"
+                  className="group w-10 h-10 flex items-center justify-center rounded-full
+                            bg-white/10 text-gray-300
+                            hover:bg-gradient-to-tr hover:from-pink-500 hover:via-red-500 hover:to-yellow-400
+                            hover:text-white
+                            transition-all duration-300
+                            hover:scale-110 hover:shadow-lg hover:shadow-pink-500/40"
+                >
+                  <Instagram size={18} />
+                </Link>
+
+                {/* LinkedIn */}
+                <Link
+                  to="/"
+                  className="group w-10 h-10 flex items-center justify-center rounded-full
+                            bg-white/10 text-gray-300
+                            hover:bg-sky-600 hover:text-white
+                            transition-all duration-300
+                            hover:scale-110 hover:shadow-lg hover:shadow-sky-600/40"
+                >
+                  <Linkedin size={18} />
+                </Link>
+
+                {/* Twitter / X */}
+                <Link
+                  to="/"
+                  className="group w-10 h-10 flex items-center justify-center rounded-full
+                            bg-white/10 text-gray-300
+                            hover:bg-sky-400 hover:text-white
+                            transition-all duration-300
+                            hover:scale-110 hover:shadow-lg hover:shadow-white/20"
+                >
+                  <Twitter size={18} />
+                </Link>
+
+              </div>
+
+
           </div>
 
           {/* QUICK LINKS */}
@@ -34,12 +93,8 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="hover:text-white cursor-pointer">Top Offers</li>
               <li className="hover:text-white cursor-pointer">How to Earn</li>
-              <li className="hover:text-white cursor-pointer">
-                <Link to="/Leaderboard">Leaderboard</Link>
-              </li>
-              <li className="hover:text-white cursor-pointer">
-                <Link to="/Signup">Sign Up</Link>
-              </li>
+              <li className="hover:text-white cursor-pointer">Leaderboard</li>
+             
             </ul>
           </div>
 
@@ -48,7 +103,7 @@ export const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Support</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
-                <Link to="/help-center" className='flex item-center gap-2'><HelpCircle size={16} /> Help Center</Link>
+                <Link to="/help-center" className='flex item-center gap-2'><HelpCircle size={16} /> FAQ's</Link>
               </li>
               <li className="flex items-center gap-2 hover:text-white cursor-pointer">
                 <Link to="/contact-us" className='flex item-center gap-2'><Mail size={16} /> Contact Us</Link>

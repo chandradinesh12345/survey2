@@ -55,10 +55,10 @@ export const WhyChoose = () => {
                 key={index}
                 className="flex items-center gap-4 px-6 py-5 rounded-xl
                 bg-[#0b1225] border border-white/10
-                hover:border-green-500/40 transition"
+                hover:border-sky-500/40 hover:shadow-[0_0_15px_rgba(34,211,238,0.6)] transition-all duration-300"
               >
-                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-green-500/10">
-                  <Icon className="w-5 h-5 text-green-500" />
+                <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-sky-500/10">
+                  <Icon className="w-5 h-5 text-sky-500" />
                 </div>
                 <p className="text-gray-200 text-sm md:text-base">
                   {item.text}

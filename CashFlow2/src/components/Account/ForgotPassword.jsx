@@ -1,12 +1,11 @@
 import React from 'react'
-
 import { Mail } from "lucide-react";
-import { Link } from "react-router-dom";
 
-export const ForgotPassword = () => {
+export const ForgotPassword = ({ backToLogin }) => {
+
   return (
     <>
-        <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#050b1a] via-[#050b1a] to-[#020617] px-4">
+        <section className="bg-gradient-to-br border border-white/10 bg-white/[0.03] backdrop-blur-xl p-4 md:p-5 shadow-xl from-[#050b1a] via-[#050b1a] to-[#020617] rounded-2xl">
 
       <div className="w-full max-w-md text-center">
 
@@ -15,10 +14,10 @@ export const ForgotPassword = () => {
           $
         </div>
 
-        <h1 className="text-3xl font-bold text-white">Change Password</h1>
+        <h1 className="text-xl font-bold text-white">Change Password</h1>
 
         {/* Card */}
-        <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-6 md:p-8 shadow-xl">
+        <div className="mt-8">
 
           {/* Email */}
           <div className="text-left mb-5">
@@ -38,26 +37,19 @@ export const ForgotPassword = () => {
        
 
           {/* Button */}
-          <button className="w-full h-12 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition">
+          <button className="w-full h-12 cursor-pointer rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition">
             Send Reset Link →
           </button>
 
           {/* Signup */}
           <p className="text-sm text-gray-400 mt-6">
             Remembered your password?
-            <Link to="/Login" className="text-cyan-400 hover:underline">
+            <button onClick={backToLogin} className="text_color_brad cursor-pointer hover:underline">
               Sign in
-            </Link>
+            </button>
           </p>
         </div>
 
-        {/* Back */}
-        <Link
-          to="/"
-          className="inline-block mt-6 text-sm text-gray-400 hover:text-white transition"
-        >
-          ← Back to Home
-        </Link>
 
       </div>
     </section>

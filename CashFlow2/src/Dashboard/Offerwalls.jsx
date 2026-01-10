@@ -1,7 +1,7 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Autoplay } from "swiper/modules";
+//import { Autoplay } from "swiper/modules";
 import { Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -14,13 +14,14 @@ import cpx from "../assets/img/cpx.svg";
 import notik from "../assets/img/notik.png";
 
 const partners = [
-  { name: "AdGate Media", logo: adgate, rating: 5 },{ name: "OfferToro", logo: offertoro, rating: 5 },
-  { name: "Lootably", logo: lootably, rating: 5 },
-  { name: "TimeWall", logo: timewall, rating: 5 },
-  { name: "Adtogame", logo: adtogame, rating: 5 },
+  { name: "AdGate Media", logo: adgate },
+  { name: "OfferToro", logo: offertoro },
+  { name: "Lootably", logo: lootably },
+  { name: "TimeWall", logo: timewall },
+  { name: "Adtogame", logo: adtogame},
   { locked: true },
-  { name: "Cpx", logo: cpx, rating: 5 },
-  { name: "Notik", logo: notik, rating: 5 },
+  { name: "Cpx", logo: cpx},
+  { name: "Notik", logo: notik },
 ];
 
 export const Offerwalls = () => {
@@ -41,7 +42,7 @@ export const Offerwalls = () => {
             {/* SLIDER */}
             <Swiper
                // modules={[Navigation]}
-               modules={[Autoplay]}
+              // modules={[Autoplay]}
                 spaceBetween={16}
                 slidesPerView={2}
                 navigation
@@ -56,7 +57,7 @@ export const Offerwalls = () => {
                     {item.locked ? (
                         /* LOCKED CARD */
                         <div
-                        className="h-[160px] bg-gradient-to-br from-blue-900 to-blue-700
+                        className="h-[140px] bg-gradient-to-br from-blue-900 to-blue-700
                         rounded-xl p-4 text-center text-white flex flex-col mt-[10px] justify-center"
                         >
                         <Lock className="mx-auto mb-2" />
@@ -70,7 +71,7 @@ export const Offerwalls = () => {
                     ) : (
                         /* NORMAL CARD */
                         <div
-                        className="h-[160px] bg-[#121212] rounded-xl p-4
+                        className="h-[140px] bg-[#0b1220] rounded-xl p-4
                         border border-white/10 hover:border-cyan-400/40
                         hover:-translate-y-1 transition-all duration-300 mt-[10px]"
                         >
@@ -86,11 +87,6 @@ export const Offerwalls = () => {
                             {item.name}
                         </p>
 
-                        <div className="flex justify-center gap-1">
-                            {Array(item.rating).fill(0).map((_, i) => (
-                            <span key={i} className="text-yellow-400 text-sm">★</span>
-                            ))}
-                        </div>
                         </div>
                     )}
                     </SwiperSlide>

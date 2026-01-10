@@ -20,13 +20,13 @@ export const HowItWorks = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Card 1 */}
-          <div className="relative bg-[#0b1225] border border-white/10 rounded-2xl p-8">
+          <div className="relative bg-[#0b1225] border border-white/10 rounded-2xl p-8 hover:border-[#12a7e2] transition hover:scale-[1.06] cursor-pointer">
             <div className="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm text-gray-300">
               1
             </div>
 
-            <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-6">
-              <Search className="text-green-400" />
+            <div className="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-6">
+              <Search className="text-sky-400" />
             </div>
 
             <h3 className="text-xl font-semibold text-white mb-3">
@@ -39,13 +39,13 @@ export const HowItWorks = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="relative bg-[#0b1225] border border-white/10 rounded-2xl p-8">
+          <div className="relative bg-[#0b1225] border border-white/10 rounded-2xl p-8 hover:border-[#12a7e2] transition hover:scale-[1.06] cursor-pointer">
             <div className="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm text-gray-300">
               2
             </div>
 
-            <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-6">
-              <MousePointerClick className="text-green-400" />
+            <div className="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-6">
+              <MousePointerClick className="text-sky-400" />
             </div>
 
             <h3 className="text-xl font-semibold text-white mb-3">
@@ -58,13 +58,13 @@ export const HowItWorks = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="relative bg-[#0b1225] border border-white/10 rounded-2xl p-8">
+          <div className="relative bg-[#0b1225] border border-white/10 rounded-2xl p-8 hover:border-[#12a7e2] transition hover:scale-[1.06] cursor-pointer">
             <div className="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm text-gray-300">
               3
             </div>
 
-            <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-6">
-              <Wallet className="text-green-400" />
+            <div className="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-6">
+              <Wallet className="text-sky-400" />
             </div>
 
             <h3 className="text-xl font-semibold text-white mb-3">

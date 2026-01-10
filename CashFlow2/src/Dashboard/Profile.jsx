@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import {
   DollarSign,
   Users,
+  Wallet,
   Calendar,
   Copy,
   Star,
@@ -72,17 +73,17 @@ export const Profile = () => {
         {/* STATS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatCard
-            icon={<DollarSign />}
+            icon={<DollarSign className='text_color_brad' />}
             value="$1,247.50"
             label="Total Earned"
           />
           <StatCard
-            icon={<Users />}
+            icon={<Wallet className='text_color_brad' />}
             value="12"
-            label="Referrals"
+            label="Total Withdrawal"
           />
           <StatCard
-            icon={<Calendar />}
+            icon={<Calendar className='text_color_brad' />}
             value="Jan 2025"
             label="Member Since"
           />

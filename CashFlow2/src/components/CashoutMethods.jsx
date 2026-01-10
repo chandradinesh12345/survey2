@@ -1,30 +1,40 @@
 import React from 'react'
 
+import PaypalLogo from "../assets/img/Paypal.svg";
+import BitCoin from "../assets/img/bitcoin.svg"
+import LiteCoin from "../assets/img/litecoin.svg"
+import dogecoin from "../assets/img/dogecoin.png"
+import ethereum from "../assets/img/ethereum.svg"
+import amazon from "../assets/img/qmazon.webp"
+import netflix from "../assets/img/netflix.png"
+import visa from "../assets/img/VisaLogo.png"
+
+
 export const CashoutMethods = () => {
     const methods = [
     {
-      name: "PayPal",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg",
+      logo: PaypalLogo
     },
     {
-      name: "Bitcoin",
-      logo: "https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=035",
+      logo: BitCoin
     },
     {
-      name: "Visa",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png",
+      logo: LiteCoin
     },
     {
-      name: "Litecoin",
-      logo: "https://cryptologos.cc/logos/litecoin-ltc-logo.svg?v=035",
+      logo: dogecoin
     },
     {
-      name: "Ethereum",
-      logo: "https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=035",
+      logo: ethereum
     },
     {
-      name: "Gift Cards",
-      logo: "https://cdn-icons-png.flaticon.com/512/3081/3081559.png",
+      logo: amazon
+    },
+    {
+      logo: netflix
+    },
+    {
+      logo: visa
     },
   ];
   return (
@@ -43,14 +53,14 @@ export const CashoutMethods = () => {
           {methods.map((item, index) => (
             <div
               key={index}
-              className="phone_view_item_box flex items-center gap-3 px-6 py-4 rounded-xl
+              className="phone_view_item_box px-6 py-4 rounded-xl
                          border border-white/10 bg-[#0b1225]
-                         hover:border-green-500/40 transition"
+                         hover:border-[#12a7e2] transition hover:scale-[1.09] cursor-pointer"
             >
               <img
                 src={item.logo}
                 alt={item.name}
-                className="h-6 w-auto object-contain"
+                className="h-6 w-20 object-scale-down"
               />
               <span className="text-white font-medium">
                 {item.name}

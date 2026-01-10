@@ -2,23 +2,23 @@ import React from "react";
 import { Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import adgate from "../assets/img/adgatemedia.svg";
+import offertoro from "../assets/img/offertoro.png";
+import lootably from "../assets/img/lootably.png";
+import timewall from "../assets/img/timewall.png";
+import adtogame from "../assets/img/adtogame.png";
+import cpx from "../assets/img/cpx.svg";
+import notik from "../assets/img/notik.png";
+
 const partners = [
-  { name: "AdGate Media", logo: "../src/assets/img/adgatemedia.svg", rating: 5 },
-  { name: "OfferToro", logo: "../src/assets/img/offertoro.png", rating: 5 },
-  { name: "Lootably", logo: "../src/assets/img/lootably.png", rating: 5 },
-  { name: "TimeWall", logo: "../src/assets/img/timewall.png", rating: 5 },
-  { name: "Adtogame", logo: "../src/assets/img/adtogame.png", rating: 5 },
+  { name: "AdGate Media", logo: adgate },
+  { name: "OfferToro", logo: offertoro },
+  { name: "Lootably", logo: lootably },
+  { name: "TimeWall", logo: timewall },
+  { name: "Adtogame", logo: adtogame},
   { locked: true },
-  { name: "Cpx", logo: "../src/assets/img/cpx.svg", rating: 5 },
-  { name: "Notik", logo: "../src/assets/img/notik.png", rating: 5 },
-  { name: "AdGate Media", logo: "../src/assets/img/adgatemedia.svg", rating: 5 },
-  { name: "OfferToro", logo: "../src/assets/img/offertoro.png", rating: 5 },
-  { name: "Lootably", logo: "../src/assets/img/lootably.png", rating: 5 },
-  { name: "TimeWall", logo: "../src/assets/img/timewall.png", rating: 5 },
-  { name: "Adtogame", logo: "../src/assets/img/adtogame.png", rating: 5 },
-  { locked: true },
-  { name: "Cpx", logo: "../src/assets/img/cpx.svg", rating: 5 },
-  { name: "Notik", logo: "../src/assets/img/notik.png", rating: 5 },
+  { name: "Cpx", logo: cpx},
+  { name: "Notik", logo: notik },
 ];
 
 
@@ -57,7 +57,7 @@ export const OfferwallsPages = () => {
                     {item.locked ? (
                         /* 🔒 LOCKED CARD */
                         <div
-                        className="h-[160px] bg-gradient-to-br from-blue-900 to-blue-700
+                        className="h-[140px] bg-gradient-to-br from-blue-900 to-blue-700
                         rounded-xl p-4 text-center text-white flex flex-col justify-center"
                         >
                         <Lock className="mx-auto mb-2" />
@@ -72,7 +72,7 @@ export const OfferwallsPages = () => {
                         /* ✅ NORMAL CARD */
                         <Link
                         to="#"
-                        className="h-[160px] block bg-[#121212] rounded-xl p-4
+                        className="h-[140px] block bg-[#0b1220] rounded-xl p-4
                         border border-white/10 hover:border-cyan-400/40
                         hover:-translate-y-1 transition-all duration-300"
                         >
@@ -87,16 +87,6 @@ export const OfferwallsPages = () => {
                         <p className="text-white text-center font-medium mb-2 text-sm">
                             {item.name}
                         </p>
-
-                        <div className="flex justify-center gap-1">
-                            {Array(item.rating)
-                            .fill(0)
-                            .map((_, i) => (
-                                <span key={i} className="text-yellow-400 text-sm">
-                                ★
-                                </span>
-                            ))}
-                        </div>
                         </Link>
                     )}
                     </div>
