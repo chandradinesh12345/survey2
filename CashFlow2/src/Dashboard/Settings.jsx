@@ -65,8 +65,8 @@ const [showConfirm, setShowConfirm] = useState(false);
           {/* SECURITY */}
           <div className="bg-[#0b1220]/80 backdrop-blur-xl rounded-2xl border border-white/10 shadow-xl p-6">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-green-400/20 flex items-center justify-center">
-                <Lock size={18} className="text-green-400" />
+              <div className="w-9 h-9 rounded-xl bg-sky-400/20 flex items-center justify-center">
+                <Lock size={18} className="text-sky-400" />
               </div>
               <h3 className="text-lg font-semibold">Change Password</h3>
             </div>
@@ -78,7 +78,7 @@ const [showConfirm, setShowConfirm] = useState(false);
                 <input
                   type={showCurrent ? "text" : "password"}
                   placeholder="Current Password"
-                  className="w-full bg-[#070c1a] border border-white/10 rounded-xl px-4 py-3 pr-12 text-white outline-none focus:border-green-400 transition"
+                  className="w-full bg-[#070c1a] border border-white/10 rounded-xl px-4 py-3 pr-12 text-white outline-none focus:border-cyan-400 transition"
                 />
                 <button
                   type="button"
@@ -94,7 +94,7 @@ const [showConfirm, setShowConfirm] = useState(false);
                 <input
                   type={showNew ? "text" : "password"}
                   placeholder="New Password"
-                  className="w-full bg-[#070c1a] border border-white/10 rounded-xl px-4 py-3 pr-12 text-white outline-none focus:border-green-400 transition"
+                  className="w-full bg-[#070c1a] border border-white/10 rounded-xl px-4 py-3 pr-12 text-white outline-none focus:border-cyan-400 transition"
                 />
                 <button
                   type="button"
@@ -110,7 +110,7 @@ const [showConfirm, setShowConfirm] = useState(false);
                 <input
                   type={showConfirm ? "text" : "password"}
                   placeholder="Confirm New Password"
-                  className="w-full bg-[#070c1a] border border-white/10 rounded-xl px-4 py-3 pr-12 text-white outline-none focus:border-green-400 transition"
+                  className="w-full bg-[#070c1a] border border-white/10 rounded-xl px-4 py-3 pr-12 text-white outline-none focus:border-cyan-400 transition"
                 />
                 <button
                   type="button"
@@ -122,7 +122,7 @@ const [showConfirm, setShowConfirm] = useState(false);
               </div>
 
               {/* BUTTON */}
-              <button className="w-full cursor-pointer mt-2 py-3 rounded-xl border border-green-400 text-green-400 hover:bg-green-400 hover:text-black transition">
+              <button className="w-full cursor-pointer mt-2 py-3 rounded-xl border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-black transition">
                 Change Password
               </button>
 
@@ -180,7 +180,7 @@ const [showConfirm, setShowConfirm] = useState(false);
 
         {/* SAVE */}
         <div className="flex justify-end">
-          <button className="bg-gradient-to-r from-cyan-400 to-green-400 text-black px-10 py-3 rounded-xl font-medium hover:opacity-90 transition">
+          <button className="bg_gradient cursor-pointer from-cyan-400 to-green-400 text-black px-10 py-3 rounded-xl font-medium hover:opacity-90 transition">
             Save Changes
           </button>
         </div>

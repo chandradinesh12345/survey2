@@ -7,6 +7,7 @@ import {
   User,
   LogOut,
   Wallet,
+  MessageSquareText,
   Settings2,
 } from "lucide-react";
 import { Login } from "../components/Account/Login"; // path apne hisaab se
@@ -15,6 +16,8 @@ import { Signup } from "../components/Account/Signup";
 
 
 export const Header = () => {
+
+
 
   const location = useLocation(); // ✅ ADDED
 
@@ -27,22 +30,20 @@ const [chatTab, setChatTab] = useState("community");
 
 const profileRef = useRef(null); // ✅ ADDED
 
-// ✅ ADDED — close profile on outside click
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (profileRef.current && !profileRef.current.contains(event.target)) {
-        setProfileOpen(false);
-      }
-    };
+const CHAT_WIDTH = 420;
 
-    if (profileOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+useEffect(() => {
+  if (window.innerWidth >= 1024) {
+    document.documentElement.style.setProperty(
+      "--chat-offset",
+      chatOpen ? `${CHAT_WIDTH}px` : "0px"
+    );
+  }
+}, [chatOpen]);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [profileOpen]);
+
+
+
 
   const closeAll = () => {
     setNotifOpen(false);
@@ -75,8 +76,47 @@ const isDashboard = dashboardRoutes.some((path) =>
 
 
     <>
+
+    {/* phone view */}
+      <button
+          onClick={() => {
+            setChatOpen(true);
+            setNotifOpen(false);
+            setProfileOpen(false);
+          }}
+          className="lg:hidden fixed bottom-8 right-8 z-10 group"
+        >
+          {/* Glow Ring */}
+          <span className="absolute inset-0 rounded-full bg-green-400 blur-lg opacity-60 animate-pulse"></span>
+
+          {/* Main Button */}
+          <span
+            className="
+              relative flex items-center justify-center
+              h-12 w-12 rounded-full
+              bg_gradient to-emerald-500
+              text-white
+              shadow-xl shadow-cyn-500/40
+              animate-bounce
+              transition-all duration-300
+              group-hover:scale-110
+              group-hover:shadow-emerald-400/60
+            "
+          >
+            <MessageSquareText size={22} />
+          </span>
+        </button>
+
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-20 bg-[#070c1a]/80 backdrop-blur-md border-b border-white/10">
+      
+      {/* <header className="fixed top-0 left-0 w-full z-20 bg-[#070c1a]/80 backdrop-blur-md border-b border-white/10"> */}
+       <header
+        className="fixed top-0 left-0 w-full z-20 bg-[#070c1a]/80 backdrop-blur-md border-b border-white/10 transition-all duration-300"
+        style={{
+          paddingRight: "var(--chat-offset)",
+        }}
+      >
+
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
 
           {/* LOGO */}
@@ -246,7 +286,7 @@ const isDashboard = dashboardRoutes.some((path) =>
             </nav>
             <div className="flex items-center lg:gap-2 gap-1 relative">
               {/* BALANCE */}
-              <div className="flex items-center gap-2 px-2 py-1.5 rounded-xl bg-green-500/10 text_color_brad text-md">
+              <div className="flex items-center gap-2 px-2 py-1.5 rounded-xl bg-sky-500/10 text_color_brad text-md">
                 <Wallet size={16} />
                 <span className="font-semibold">$127.50</span>
               </div>
@@ -259,7 +299,7 @@ const isDashboard = dashboardRoutes.some((path) =>
                     setChatOpen(false);
                     setProfileOpen(false);
                   }}
-                  className="relative hover:bg-green-500/20 py-3 px-2 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
+                  className="relative hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
                 >
                   <Bell size={16} />
                   <span className="absolute -top-1 -right-1 bg-red-500 text-xs w-4 h-4 rounded-full flex items-center justify-center text-white">
@@ -418,37 +458,31 @@ const isDashboard = dashboardRoutes.some((path) =>
                     setNotifOpen(false);
                     setProfileOpen(false);
                   }}
-                  className="hover:bg-green-500/20 py-3 px-2 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
+                  className="lg:block hidden  hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
                 >
                   <MessageCircle size={16} />
                 </button>
 
+                
+
                                 
               <div
-                className={`fixed top-0 right-0 h-screen w-[420px] z-[60]
+                className={`fixed top-0 right-0 h-screen sm:w-[420px] w-[100%] z-[60]
                 bg-[#070c1a] border-l border-white/10
                 flex flex-col
                 transform transition-transform duration-300 ease-in-out
                 ${chatOpen ? "translate-x-0" : "translate-x-full"}
               `}
               >
-                {/* HEADER */}
-                <div className="h-16 px-5 flex items-center justify-between border-b border-white/10 shrink-0">
-                  <h3 className="text-white text-lg font-semibold">Chat</h3>
-                  <button
-                    onClick={() => setChatOpen(false)}
-                    className="text-gray-400 hover:text-white text-xl"
-                  >
-                    ✕
-                  </button>
-                </div>
+               
 
                 {/* TABS */}
-                <div className="px-5 py-4 border-b border-white/10 shrink-0">
-                  <div className="flex bg-[#131d35] rounded-xl p-1">
+                <div className="px-2 py-4 border-b border-white/10 shrink-0">
+                <div className="flex justify-between">
+                  <div className="flex w-80 bg-[#131d35] rounded-xl p-1">
                     <button
                       onClick={() => setChatTab("community")}
-                      className={`flex-1 py-2 rounded-lg text-sm transition
+                      className={`flex-1 py-2 rounded-lg cursor-pointer text-sm transition
                       ${chatTab === "community"
                         ? "bg-[#080c17] text-white"
                         : "text-gray-400 hover:text-white"}
@@ -459,7 +493,7 @@ const isDashboard = dashboardRoutes.some((path) =>
 
                     <button
                       onClick={() => setChatTab("support")}
-                      className={`flex-1 py-2 rounded-lg text-sm transition
+                      className={`flex-1 py-2 rounded-lg cursor-pointer text-sm transition
                       ${chatTab === "support"
                         ? "bg-[#080c17] text-white"
                         : "text-gray-400 hover:text-white"}
@@ -468,7 +502,13 @@ const isDashboard = dashboardRoutes.some((path) =>
                       🎧 Support
                     </button>
                   </div>
-
+                  <button
+                    onClick={() => setChatOpen(false)}
+                    className="text-gray-400 cursor-pointer hover:text-white text-xl"
+                  >
+                    ✕
+                  </button>
+                </div>
                   {chatTab === "community" && (
                     <p className="text-gray-400 text-sm mt-3">
                       127 members online
@@ -567,23 +607,23 @@ const isDashboard = dashboardRoutes.some((path) =>
               </div>
 
               {/* PROFILE */}
-              <div className="relative" ref={profileRef}>
+              <div className="relative hidden lg:block" ref={profileRef}>
                 <button
                   onClick={() => {
                     setProfileOpen(!profileOpen);
                     setNotifOpen(false);
                     setChatOpen(false);
                   }}
-                  className="hover:bg-green-500/20 py-3 px-2 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
+                  className="hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
                 >
                   <User size={16} />
                 </button>
 
                 {profileOpen && (
-                  <div className="absolute right-0 mt-4 w-52 bg-[#0b1220] rounded-xl border border-white/10 shadow-xl p-2">
+                  <div className="absolute right-0 mt-3 w-40 bg-[#0b1220] rounded-xl border border-white/10 shadow-xl p-2">
                     <Link
                       to="/profile"
-                      className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-teal-400 hover:text-black"
+                      className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-sky-400 hover:text-black"
                     >
                       <User size={14} /> Profile
                     </Link>
@@ -592,13 +632,13 @@ const isDashboard = dashboardRoutes.some((path) =>
 
                     <Link
                       to="/settings"
-                      className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-teal-400 hover:text-black"
+                      className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-sky-400 hover:text-black"
                     >
                       <Settings2 size={14} /> Settings
                     </Link>
 
                     <div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-white/10"></div>
-                    <button className="w-full rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-teal-400 text-black flex gap-2 items-center hover:text-black text-left">
+                    <button className="w-full rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-sky-400 text-black flex gap-2 cursor-pointer items-center hover:text-black text-left">
                       <LogOut size={14} /> Logout
                     </button>
                   </div>
@@ -651,6 +691,11 @@ const isDashboard = dashboardRoutes.some((path) =>
               <Link to="/cashout" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Castout</Link>
               <Link to="/rewards" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Rewards</Link>
               <Link to="/leaderboard" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Leaderboard</Link>
+              
+              <Link to="/profile" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Profile</Link>
+              <Link to="/settings" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Settings</Link>
+              <Link to="/" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Logout</Link>
+
               </>
             )}
 

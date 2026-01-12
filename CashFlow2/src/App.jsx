@@ -38,8 +38,18 @@ const hideLayout = hideLayoutRoutes.some(
 
   return (
     <>
+   
+
       {/* HEADER */}
       {!hideLayout && <Header />}
+
+        <div
+  id="main-content"
+  style={{
+    paddingRight: "var(--chat-offset)",
+    transition: "padding-right 0.3s ease",
+  }}
+>
 
       <Routes>
         {/* AUTH */}
@@ -70,6 +80,7 @@ const hideLayout = hideLayoutRoutes.some(
 
       {/* FOOTER */}
       {!hideLayout && <Footer />}
+      </div>
     </>
   );
 }

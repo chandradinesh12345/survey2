@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { FilterBar } from "../Dashboard/FilterBar";
 
 import { Link } from "react-router-dom";
 import { FileText, Gamepad2, Smartphone, Video } from "lucide-react";
@@ -200,6 +201,8 @@ export const FeaturedOffersPages = () => {
                         ⚡ Featured Offers
                     </h2>
                     </div>
+
+                     <FilterBar />
 
                     {/* ✅ GRID (7 COLUMNS DESKTOP) */}
                     <div

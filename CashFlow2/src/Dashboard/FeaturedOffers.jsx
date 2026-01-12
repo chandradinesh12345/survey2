@@ -5,6 +5,7 @@ import "swiper/css";
 import { Link } from 'react-router-dom';
 
 
+
 import { FileText, Gamepad2, Smartphone, Video } from "lucide-react";
 
 const offers = [
@@ -133,6 +134,8 @@ export const FeaturedOffers = () => {
               </Link>
             </div>
 
+           
+
             {/* SLIDER */}
             <Swiper
              // modules={[Autoplay]}
@@ -159,7 +162,7 @@ export const FeaturedOffers = () => {
                     <img
                       src={offer.img}
                       alt={offer.title}
-                      className="h-44 w-full object-cover opacity-80 group-hover:scale-105 transition"
+                      className="h-30 md:h-44 w-full object-cover opacity-80 group-hover:scale-105 transition"
                     />
 
                     {/* BADGE */}

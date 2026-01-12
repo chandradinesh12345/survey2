@@ -176,7 +176,7 @@ export const CashOut = () => {
                         />
 
                         <button
-                        className="w-full bg-gradient-to-r from-cyan-500 to-teal-400
+                        className="w-full bg_gradient from-cyan-500 to-teal-400
                         text-black font-semibold py-3 rounded-xl
                         hover:shadow-[0_0_60px_rgba(56,189,248,0.6)]
                         transition"

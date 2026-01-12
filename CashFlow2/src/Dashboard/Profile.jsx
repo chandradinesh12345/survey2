@@ -7,6 +7,7 @@ import {
   Calendar,
   Copy,
   Star,
+  SquarePen,
   Settings
 } from "lucide-react";
 import userIcon from '../assets/img/user_icon.jpg'
@@ -105,11 +106,16 @@ export const Profile = () => {
 
             <div>
               <p className="text-sm text-gray-400 mb-1">Your Referral Code</p>
-              <input
-                readOnly
-                value="JOHN2025"
-                className="w-full bg-[#070c1a] border border-white/10 rounded-xl px-4 py-2"
-              />
+              <div className="flex gap-2">
+                <input
+                  readOnly
+                  value="JOHN2025"
+                  className="w-full bg-[#070c1a] border border-white/10 rounded-xl px-4 py-2"
+                />
+                <button className="px-3 cursor-pointer rounded-xl bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30 transition">
+                    <SquarePen size={18} />
+                  </button>
+              </div>
             </div>
 
             <div>
@@ -120,13 +126,13 @@ export const Profile = () => {
                   value="https://cashflow.app/ref/JOHN2025"
                   className="flex-1 bg-[#070c1a] border border-white/10 rounded-xl px-4 py-2"
                 />
-                <button className="px-3 rounded-xl bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30 transition">
+                <button className="px-3 cursor-pointer rounded-xl bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30 transition">
                   <Copy size={18} />
                 </button>
               </div>
             </div>
 
-            <div className="bg-green-500/10 border border-green-500/20 text-green-400 rounded-xl px-4 py-3 text-sm">
+            <div className="bg-sky-500/10 border border-sky-500/20 text_color_brad rounded-xl px-4 py-3 text-sm">
               You've earned $124.75 from referrals!
             </div>
           </div>

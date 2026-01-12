@@ -26,7 +26,7 @@ export const ThreeCard = () => {
                         </div>
 
                         <Link to="/cashout"
-                        className="mt-6 block w-full bg-gradient-to-r from-cyan-500 to-teal-400
+                        className="mt-6 block w-full bg_gradient from-cyan-500 to-teal-400
                         text-black font-semibold py-2 rounded-xl
                         hover:opacity-90 hover:shadow-lg text-sm text-center hover:shadow-cyan-500/30
                         transition-all"
