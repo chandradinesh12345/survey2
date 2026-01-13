@@ -286,10 +286,11 @@ const isDashboard = dashboardRoutes.some((path) =>
             </nav>
             <div className="flex items-center lg:gap-2 gap-1 relative">
               {/* BALANCE */}
-              <div className="flex items-center gap-2 px-2 py-1.5 rounded-xl bg-sky-500/10 text_color_brad text-md">
+              <Link to="/cashout" className="flex items-center gap-2 px-2 py-1.5 rounded-xl bg-sky-500/10 text_color_brad hover:-translate-y-1 hover:shadow-[0_0_80px_rgba(56,189,248,0.45)]
+                    transition-all duration-300 text-md">
                 <Wallet size={16} />
                 <span className="font-semibold">$127.50</span>
-              </div>
+              </Link>
 
               {/* NOTIFICATION */}
               <div className="relative">
@@ -352,15 +353,6 @@ const isDashboard = dashboardRoutes.some((path) =>
                           <p className="text-gray-500 text-xs mt-1">
                             2 min ago
                           </p>
-
-                          {/* ITEM CLOSE */}
-                          <button
-                            className="absolute top-0 right-0 text-gray-400
-                            opacity-0 group-hover:opacity-100 transition
-                            hover:text-white"
-                          >
-                            ✕
-                          </button>
                         </div>
                       </div>
 
@@ -385,14 +377,6 @@ const isDashboard = dashboardRoutes.some((path) =>
                           <p className="text-gray-500 text-xs mt-1">
                             1 hour ago
                           </p>
-
-                          <button
-                            className="absolute top-0 right-0 text-gray-400
-                            opacity-0 group-hover:opacity-100 transition
-                            hover:text-white"
-                          >
-                            ✕
-                          </button>
                         </div>
                       </div>
 
@@ -417,14 +401,6 @@ const isDashboard = dashboardRoutes.some((path) =>
                           <p className="text-gray-500 text-xs mt-1">
                             3 hours ago
                           </p>
-
-                          <button
-                            className="absolute top-0 right-0 text-gray-400
-                            opacity-0 group-hover:opacity-100 transition
-                            hover:text-white"
-                          >
-                            ✕
-                          </button>
                         </div>
                       </div>
 
@@ -458,7 +434,7 @@ const isDashboard = dashboardRoutes.some((path) =>
                     setNotifOpen(false);
                     setProfileOpen(false);
                   }}
-                  className="lg:block hidden  hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
+                  className="lg:block hidden hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
                 >
                   <MessageCircle size={16} />
                 </button>
@@ -605,45 +581,21 @@ const isDashboard = dashboardRoutes.some((path) =>
                   </div>
                 </div>
               </div>
+              
 
               {/* PROFILE */}
-              <div className="relative hidden lg:block" ref={profileRef}>
-                <button
-                  onClick={() => {
-                    setProfileOpen(!profileOpen);
-                    setNotifOpen(false);
-                    setChatOpen(false);
-                  }}
-                  className="hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
+
+              <Link to="/profile"
+                  className="lg:block hidden  hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
                 >
                   <User size={16} />
-                </button>
-
-                {profileOpen && (
-                  <div className="absolute right-0 mt-3 w-40 bg-[#0b1220] rounded-xl border border-white/10 shadow-xl p-2">
-                    <Link
-                      to="/profile"
-                      className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-sky-400 hover:text-black"
-                    >
-                      <User size={14} /> Profile
-                    </Link>
-
-                 
-
-                    <Link
-                      to="/settings"
-                      className="flex gap-2 items-center rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-sky-400 hover:text-black"
-                    >
-                      <Settings2 size={14} /> Settings
-                    </Link>
-
-                    <div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-white/10"></div>
-                    <button className="w-full rounded-sm px-2 py-1.5 text-[12px] outline-none text-white hover:bg-sky-400 text-black flex gap-2 cursor-pointer items-center hover:text-black text-left">
-                      <LogOut size={14} /> Logout
-                    </button>
-                  </div>
-                )}
-              </div>
+              </Link>
+              <Link to="/"
+                  className="lg:block hidden  hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
+                >
+                  <LogOut size={16} />
+              </Link>
+              
             </div>
           </div>
 

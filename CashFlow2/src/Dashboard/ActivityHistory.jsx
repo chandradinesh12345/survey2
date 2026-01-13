@@ -284,12 +284,12 @@ export const ActivityHistory = () => {
             <>
               <thead>
                 <tr className="text-gray-400 text-sm border-b border-white/10">
-                  <th className="text-left px-6 py-4">METHOD</th>
+                  <th className="text-left px-6 py-4">OFFER NAME</th>
                   <th className="text-left px-6 py-4">PROVIDER</th>
                   
                   <th className="text-right px-6 py-4">AMOUNT</th>
                   <th className="text-right px-6 py-4">DATE</th>
-                  <th className="text-right px-6 py-4">Payment Transaction</th>
+                  <th className="text-right px-6 py-4">STATUS</th>
                 </tr>
               </thead>
               <tbody>

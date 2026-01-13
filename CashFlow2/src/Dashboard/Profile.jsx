@@ -185,9 +185,9 @@ export const Profile = () => {
     </>
   )
 }
-
 const StatCard = ({ icon, value, label }) => (
-  <div className="bg-[#0b1220] border border-white/10 rounded-3xl p-6 flex flex-col items-center justify-center gap-3">
+  <div className="hover:-translate-y-2 hover:shadow-[0_0_80px_rgba(56,189,248,0.45)]
+                    transition-all duration-300 bg-[#0b1220] border border-white/10 rounded-3xl p-6 flex flex-col items-center justify-center gap-3">
     <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
       {icon}
     </div>

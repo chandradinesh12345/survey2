@@ -3,10 +3,7 @@ import React from 'react'
 import {
   Crown,
   Medal,
-  Award,
-  Gift,
-  Trophy,
-  Star,
+  Trophy
 } from "lucide-react";
 
 
@@ -19,9 +16,9 @@ export const Leaderboard = () => {
 
                 {/* HEADER */}
                 <div className="text-center mb-10">
-                <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-purple-600/20 text-purple-400 text-sm mb-4">
+                {/* <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-purple-600/20 text-purple-400 text-sm mb-4">
                     🏆 Leaderboard
-                </span>
+                </span> */}
 
                 <h2 className="text-3xl font-bold">
                     Top Earners Compete for Prizes
@@ -32,12 +29,11 @@ export const Leaderboard = () => {
                 </div>
 
                 {/* PRIZE CARDS */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
                 {[
                     { icon: Crown, label: "1st Place", prize: "$100 Bonus", color: "cyan" },
                     { icon: Trophy, label: "2nd Place", prize: "$50 Bonus", color: "purple" },
                     { icon: Medal, label: "3rd Place", prize: "$25 Bonus", color: "yellow" },
-                    { icon: Gift, label: "Top 10", prize: "$10 Bonus", color: "green" },
                 ].map((item, i) => (
                     <div
                     key={i}
@@ -53,36 +49,11 @@ export const Leaderboard = () => {
                         <item.icon className={`text-${item.color}-400`} />
                     </div>
                     <p className="font-medium">{item.label}</p>
-                    <p className="text-green-400 font-semibold">{item.prize}</p>
+                    <p className="text_color_brad font-semibold">{item.prize}</p>
                     </div>
                 ))}
                 </div>
 
-                {/* YOUR RANK */}
-                <div
-                className="bg-gradient-to-r from-cyan-500/10 to-blue-600/10
-                rounded-2xl p-5 block md:flex items-center justify-between
-                border border-cyan-400/20 mb-10
-                hover:shadow-[0_0_40px_rgba(56,189,248,0.2)]
-                transition"
-                >
-                <div className="flex items-center justify-center md:justify-start gap-4 md:mb-0 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-black font-bold">
-                    🙂
-                    </div>
-                    <div>
-                    <p className="font-semibold">Your Rank</p>
-                    <p className="text-gray-400 text-sm">
-                        Keep earning to climb higher!
-                    </p>
-                    </div>
-                </div>
-
-                <div className="text-center md:text-right">
-                    <p className="text-2xl font-bold text-cyan-400">#47</p>
-                    <p className="text-gray-400 text-sm">$127.50 this month</p>
-                </div>
-                </div>
 
                 {/* MONTHLY RANKINGS */}
                 <div className="bg-[#0b1220] rounded-2xl p-2 md:p-5 border border-white/10">
@@ -95,8 +66,13 @@ export const Leaderboard = () => {
                     { rank: 1, name: "CashKing99", amount: "$2847.50", icon: Crown },
                     { rank: 2, name: "MoneyMaker22", amount: "$2156.25", icon: Trophy },
                     { rank: 3, name: "RewardPro", amount: "$1893.00", icon: Medal },
-                    { rank: 4, name: "TaskMaster", amount: "$1654.75", icon: Star },
-                    { rank: 5, name: "EarnDaily", amount: "$1432.50", icon: Award },
+                    { rank: 4, name: "TaskMaster", amount: "$1654.75", icon: null },
+                    { rank: 5, name: "EarnDaily", amount: "$1432.50", icon: null },
+                    { rank: 6, name: "QuickEarn", amount: "$1320.00", icon: null },
+                    { rank: 7, name: "SurveyBoss", amount: "$1211.40", icon: null },
+                    { rank: 8, name: "OfferHunter", amount: "$1099.90", icon: null },
+                    { rank: 9, name: "DailyCash", amount: "$980.00", icon: null },
+                    { rank: 10, name: "FastPayout", amount: "$875.30", icon: null },
                 ].map((user, i) => (
                     <div
                     key={i}
@@ -108,13 +84,17 @@ export const Leaderboard = () => {
                     <div className="flex items-center gap-1 md:gap-3">
                         <span className="w-8 text-gray-400">#{user.rank}</span>
                         <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
-                        <user.icon className="w-4 h-4 text-yellow-400" />
+                        {user.icon ? (
+                            <user.icon className="w-4 h-4 text-yellow-400" />
+                            ) : (
+                            <span className=""></span>
+                            )}
                         </div>
                         <p className="text-[10px] md:text-sm">{user.name}</p>
                     </div>
 
                     <div className="text-right">
-                        <p className="text-green-400 font-semibold text-[10px] md:text-sm">
+                        <p className="text_color_brad font-semibold text-[10px] md:text-sm">
                         {user.amount}
                         </p>
                         <p className="text-xs text-gray-400">+12%</p>
