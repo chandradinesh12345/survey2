@@ -20,8 +20,8 @@ export const Signup = ({ backToLogin }) => {
         <div className="mt-8">
 
           {/* Full Name */}
-          <div className="text-left mb-5">
-            <label className="block text-sm text-gray-300 mb-2">Full Name</label>
+          <div className="text-left mb-3">
+            <label className="block text-sm text-gray-300 mb-2">Username</label>
             <div className="relative">
               <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
@@ -33,7 +33,7 @@ export const Signup = ({ backToLogin }) => {
           </div>
 
           {/* Email */}
-          <div className="text-left mb-5">
+          <div className="text-left mb-3">
             <label className="block text-sm text-gray-300 mb-2">Email Address</label>
             <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -46,7 +46,7 @@ export const Signup = ({ backToLogin }) => {
           </div>
 
           {/* Password */}
-          <div className="text-left mb-6">
+          <div className="text-left mb-3">
             <label className="block text-sm text-gray-300 mb-2">Password</label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -73,9 +73,38 @@ export const Signup = ({ backToLogin }) => {
           <button className="w-full h-12 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold hover:opacity-90 transition">
             Create Account →
           </button>
+          <button
+              className="group relative h-12 w-full px-6 rounded-xl
+                        inline-flex items-center justify-center gap-3
+                        border border-white/15 bg-white/[0.03]
+                        text-white font-medium
+                        overflow-hidden transition-all duration-300
+                        hover:border-white/30
+                        hover:shadow-[0_0_25px_rgba(148,163,184,0.25)] mt-3 cursor-pointer"
+            >
+              {/* HOVER SLIDE BACKGROUND */}
+              <span
+                className="absolute inset-0 -translate-x-full
+                          bg-gradient-to-r from-slate-300/20 via-slate-200/30 to-slate-300/20
+                          transition-transform duration-500 ease-out
+                          group-hover:translate-x-0"
+              />
+
+              {/* GOOGLE ICON */}
+              <img
+                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                alt="Google"
+                className="relative z-10 w-5 h-5"
+              />
+
+              {/* TEXT */}
+              <span className="relative z-10">
+                Continue with Google
+              </span>
+            </button>
 
           {/* Back to Login */}
-          <p className="text-sm text-gray-400 mt-6">
+          <p className="text-sm text-gray-400 mt-3">
             Already have an account?{" "}
             <button
               onClick={backToLogin}

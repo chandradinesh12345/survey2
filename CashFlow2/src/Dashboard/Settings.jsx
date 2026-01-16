@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { User, Lock, Bell, Sliders, Eye, EyeOff } from "lucide-react";
+import { User, Lock, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
 
@@ -132,50 +132,7 @@ const [showConfirm, setShowConfirm] = useState(false);
 
           </div>
 
-          {/* NOTIFICATIONS */}
-          <div className="bg-[#0b1220]/80 backdrop-blur-xl rounded-2xl border border-white/10 shadow-xl p-6">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-yellow-400/20 flex items-center justify-center">
-                <Bell size={18} className="text-yellow-400" />
-              </div>
-              <h3 className="text-lg font-semibold">Notifications</h3>
-            </div>
-
-            <div className="space-y-4">
-              {[
-                "Email Notifications",
-                "Offer Alerts",
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between bg-white/5 px-4 py-3 rounded-xl"
-                >
-                  <span>{item}</span>
-                  <input type="checkbox" defaultChecked className="accent-cyan-400" />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* PREFERENCES */}
-          <div className="bg-[#0b1220]/80 backdrop-blur-xl rounded-2xl border border-white/10 shadow-xl p-6">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-purple-400/20 flex items-center justify-center">
-                <Sliders size={18} className="text-purple-400" />
-              </div>
-              <h3 className="text-lg font-semibold">Preferences</h3>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <label className="text-sm text-gray-400">Language</label>
-                <select className="w-full mt-1 bg-[#070c1a] border border-white/10 rounded-xl px-4 py-3 text-white outline-none">
-                  <option>English</option>
-                  <option>Hindi</option>
-                </select>
-              </div>
-            </div>
-          </div>
+         
         </div>
 
         {/* SAVE */}

@@ -7,6 +7,42 @@
 .text_color_brad {
   color: #12a7e2;
 }
+/* ===== Dark Theme Select ===== */
+.dark-select {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+}
+
+/* Dropdown options */
+.dark-select option {
+  background-color: #050b1a; /* theme bg */
+  color: #e5e7eb; /* gray-200 */
+}
+
+/* Selected option */
+.dark-select option:checked {
+  background-color: #0ea5e9; /* sky-500 */
+  color: #020617;
+}
+
+/* ===== Dark Theme Scrollbar (Notifications) ===== */
+.dark-ui-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dark-ui-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* no visible track */
+}
+
+.dark-ui-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.18); /* soft light for dark bg */
+  border-radius: 999px;
+}
+
+/* ❌ NO hover effect */
+.dark-ui-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
 
 .mx-auto {
   margin-left: auto;

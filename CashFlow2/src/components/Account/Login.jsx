@@ -113,6 +113,36 @@ export const Login = ({ openForgot, openSignup }) => {
           <Link to="/dashboard" className="w-full h-12 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition">
             Sign In →
           </Link>
+          
+          <button
+              className="group relative h-12 w-full px-6 rounded-xl
+                        inline-flex items-center justify-center gap-3
+                        border border-white/15 bg-white/[0.03]
+                        text-white font-medium
+                        overflow-hidden transition-all duration-300
+                        hover:border-white/30
+                        hover:shadow-[0_0_25px_rgba(148,163,184,0.25)] mt-3 cursor-pointer"
+            >
+              {/* HOVER SLIDE BACKGROUND */}
+              <span
+                className="absolute inset-0 -translate-x-full
+                          bg-gradient-to-r from-slate-300/20 via-slate-200/30 to-slate-300/20
+                          transition-transform duration-500 ease-out
+                          group-hover:translate-x-0"
+              />
+
+              {/* GOOGLE ICON */}
+              <img
+                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                alt="Google"
+                className="relative z-10 w-5 h-5"
+              />
+
+              {/* TEXT */}
+              <span className="relative z-10">
+                Continue with Google
+              </span>
+            </button>
 
           {/* Signup */}
           <p className="text-sm text-gray-400 mt-6">

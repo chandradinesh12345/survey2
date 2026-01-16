@@ -1,10 +1,10 @@
 import React from 'react'
 
 import PaypalLogo from "../assets/img/Paypal.svg";
-import BitCoin from "../assets/img/bitcoin.svg"
-import LiteCoin from "../assets/img/litecoin.svg"
+import GooglePlay from "../assets/img/Google_Play.png"
+import Applelogo from "../assets/img/Apple_logo.png"
 import dogecoin from "../assets/img/dogecoin.png"
-import ethereum from "../assets/img/ethereum.svg"
+import tetherusdt from "../assets/img/tether-usdt.svg"
 import amazon from "../assets/img/qmazon.webp"
 import netflix from "../assets/img/netflix.png"
 import visa from "../assets/img/VisaLogo.png"
@@ -16,16 +16,16 @@ export const CashoutMethods = () => {
       logo: PaypalLogo
     },
     {
-      logo: BitCoin
+      logo: GooglePlay
     },
     {
-      logo: LiteCoin
+      logo: Applelogo
     },
     {
       logo: dogecoin
     },
     {
-      logo: ethereum
+      logo: tetherusdt
     },
     {
       logo: amazon

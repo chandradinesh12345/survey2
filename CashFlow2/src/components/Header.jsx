@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from "react"; // ✅ ADDED useRef, useEffect
+import { useState, useRef, useEffect } from "react"; // ✅ ADDED useRef, useEffect
 import { Link, useLocation } from "react-router-dom";
+
 
 import {
   Bell,
@@ -8,7 +9,14 @@ import {
   LogOut,
   Wallet,
   MessageSquareText,
+  Menu,
+  LayoutDashboard,
+  Crown,
+  Gift,
+  CircleX,
+  UserCog,
   Settings2,
+  ClipboardCheck,
 } from "lucide-react";
 import { Login } from "../components/Account/Login"; // path apne hisaab se
 import { ForgotPassword } from "../components/Account/ForgotPassword";
@@ -28,7 +36,6 @@ export const Header = () => {
   const [chatOpen, setChatOpen] = useState(false);
 const [chatTab, setChatTab] = useState("community");
 
-const profileRef = useRef(null); // ✅ ADDED
 
 const CHAT_WIDTH = 420;
 
@@ -71,11 +78,43 @@ const isDashboard = dashboardRoutes.some((path) =>
   const [showForgot, setShowForgot] = useState(false);
   const [showSignup, setShowSignup] = useState(false); // ✅ NEW
 
+const notifRef = useRef(null);
+
+useEffect(() => {
+  const handleClickOutside = (e) => {
+    if (notifRef.current && !notifRef.current.contains(e.target)) {
+      setNotifOpen(false);
+    }
+  };
+
+  if (notifOpen) {
+    document.addEventListener("mousedown", handleClickOutside, true); // 👈 CAPTURE
+  }
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside, true);
+  };
+}, [notifOpen]);
+
+
+const handleMenuClose = () => {
+  setOpen(false);
+};
+
+
   return (
 
-
-
     <>
+
+    {/* OVERLAY */}
+    <div
+      onClick={() => setOpen(false)}
+      className={`fixed inset-0 bg-black/60 z-40
+                  transition-opacity duration-300
+                  ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+    />
+
+
 
     {/* phone view */}
       <button
@@ -132,38 +171,56 @@ const isDashboard = dashboardRoutes.some((path) =>
           </Link>
 
           {!isDashboard && (
-          <div className="homeview flex w-6xl justify-between">
+          <div className="homeview flex w-6xl justify-end">
               {/* DESKTOP NAV */}
-              <nav className="hidden lg:flex items-center text-sm gap-2 text-gray-400">
+              {/* <nav className="hidden lg:flex items-center text-sm gap-2 text-gray-400">
                 <Link to="/" className="hover:text-white hover:bg-cyan-500/10 border border-cyan-500/10 hover:-translate-y-0.5 transition-all duration-300 hover:border-cyan py-2 px-5 rounded-xl">Home</Link>
                 <Link to="/privacy-policy" className="hover:text-white hover:bg-cyan-500/10 border border-cyan-500/10 hover:-translate-y-0.5 transition-all duration-300 hover:border-cyan py-2 px-5 rounded-xl">Privacy Policy</Link>
                 <Link to="/terms-of-service" className="hover:text-white hover:bg-cyan-500/10 border border-cyan-500/10 hover:-translate-y-0.5 transition-all duration-300 hover:border-cyan py-2 px-5 rounded-xl">Terms of Service</Link>
                 <Link to="/contact-us" className="hover:text-white hover:bg-cyan-500/10 border border-cyan-500/10 hover:-translate-y-0.5 transition-all duration-300 hover:border-cyan py-2 px-5 rounded-xl">Contact Us</Link>
-              </nav>
+              </nav> */}
               {/* RIGHT SIDE */}
-              <div className="hidden lg:flex items-center gap-2 relative">
+              
                 {/* ACTIONS */} 
                 
                 
-                <div className="flex gap-2 items-center w-xs"> 
+                <div className="flex gap-2 items-center w-xs justify-end"> 
             <button
-            onClick={() => {
+              onClick={() => {
                 setShowLogin(true);
                 setShowForgot(false);
               }}
-              className="group cursor-pointer relative h-12 px-8 rounded-xl text-white font-semibold inline-flex items-center justify-center
-                        border border-white/30 overflow-hidden"
+              className="cursor-pointer group relative h-12 px-8 rounded-xl font-semibold text-white
+                        inline-flex items-center justify-center
+                        border border-white/20 overflow-hidden
+                        transition-all duration-300
+                        hover:shadow-[0_0_25px_rgba(148,163,184,0.35)]"
             >
-              <span className="relative z-10 transition-colors duration-300 group-hover:text-black">
+              {/* SLIDING GRADIENT BACKGROUND */}
+              <span
+                className="absolute inset-0 -translate-x-full
+                          bg-gradient-to-r from-slate-300 via-slate-200 to-slate-300
+                          transition-transform duration-500 ease-out
+                          group-hover:translate-x-0"
+              />
+
+              {/* TEXT */}
+              <span
+                className="relative z-10 transition-all duration-300
+                          group-hover:text-slate-900 group-hover:-translate-y-[1px]"
+              >
                 Sign In
               </span>
 
-              {/* BACKGROUND FILL */}
-              <span className="absolute inset-0 bg-white scale-0 group-hover:scale-100 transition-transform duration-300 origin-center rounded-xl"></span>
-
-              {/* BORDER GLOW */}
-              <span className="absolute inset-0 rounded-xl border border-white opacity-0 group-hover:opacity-100 transition"></span>
+              {/* SOFT GLOW BORDER */}
+              <span
+                className="pointer-events-none absolute inset-0 rounded-xl
+                          ring-1 ring-slate-300/40
+                          opacity-0 group-hover:opacity-100
+                          transition-opacity duration-300"
+              />
             </button>
+
             {/* ============ LOGIN POPUP MODAL ============ */}
               {showLogin && (
                 <div className="fixed inset-0 z-[1000] h-screen flex items-center justify-center bg-black/60 backdrop-blur-md">
@@ -233,7 +290,7 @@ const isDashboard = dashboardRoutes.some((path) =>
                 setShowLogin(false);
                 setShowSignup(true);
               }}
-              className="group cursor-pointer mr-[10px] relative h-12 px-8 rounded-xl bg_gradient text-black font-semibold inline-flex items-center justify-center gap-2 overflow-hidden"
+              className="group cursor-pointer relative h-12 px-8 rounded-xl bg_gradient text-black font-semibold inline-flex items-center justify-center gap-2 overflow-hidden"
             >
               <span className="relative z-10">Start Earning</span>
               {/* SHINE EFFECT */}
@@ -269,11 +326,12 @@ const isDashboard = dashboardRoutes.some((path) =>
               )}
 
                 </div>
-              </div>  
+              
           </div> 
           )}
 
           {isDashboard && (
+           
           <div className="dashtop_view flex lg:w-6xl w-xl lg:justify-between justify-end">
             {/* DESKTOP NAV */}
             <nav className="hidden lg:flex items-center text-sm gap-0 text-gray-400">
@@ -284,7 +342,7 @@ const isDashboard = dashboardRoutes.some((path) =>
               <Link to="/rewards" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Rewards</Link>
               <Link to="/leaderboard" className="hover:text-white hover:bg-green-500/10 py-2 px-5 rounded-xl">Leaderboard</Link>
             </nav>
-            <div className="flex items-center lg:gap-2 gap-1 relative">
+            <div className="flex items-center lg:gap-2 gap-3 relative">
               {/* BALANCE */}
               <Link to="/cashout" className="flex items-center gap-2 px-2 py-1.5 rounded-xl bg-sky-500/10 text_color_brad hover:-translate-y-1 hover:shadow-[0_0_80px_rgba(56,189,248,0.45)]
                     transition-all duration-300 text-md">
@@ -293,24 +351,24 @@ const isDashboard = dashboardRoutes.some((path) =>
               </Link>
 
               {/* NOTIFICATION */}
-              <div className="relative">
+              <div className="relative" ref={notifRef}>
                 <button
                   onClick={() => {
-                    setNotifOpen(!notifOpen);
+                    setNotifOpen((prev) => !prev);
                     setChatOpen(false);
                     setProfileOpen(false);
                   }}
                   className="relative hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
                 >
                   <Bell size={16} />
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-xs w-4 h-4 rounded-full flex items-center justify-center text-white">
+                  <span className="absolute top-1 right-1 bg-red-500 text-xs w-4 h-4 rounded-full flex items-center justify-center text-white">
                     3
                   </span>
                 </button>
 
                 {notifOpen && (
                   <div
-                    className="absolute right-0 mt-4 w-[320px]
+                    className="absolute lg:right-0 -right-[30px] mt-4 lg:w-[320px] w-[300px]
                     bg-[#0d1728] rounded-xl border border-white/10
                     shadow-2xl overflow-hidden
                     transform transition-all duration-300 ease-out
@@ -327,11 +385,7 @@ const isDashboard = dashboardRoutes.some((path) =>
 
                     {/* LIST (ONLY 3 ITEMS VISIBLE) */}
                     <div
-                      className="max-h-[290px] overflow-y-auto
-                      scrollbar-thin scrollbar-thumb-white/10
-                      scrollbar-thumb-rounded-full scrollbar-track-transparent"
-                    >
-
+                        className="max-h-[290px] overflow-y-auto dark-ui-scrollbar">
                       {/* ITEM 1 */}
                       <div className="group flex gap-4 px-3 py-3 border-b border-white/10 hover:bg-white/5 transition">
                         <div className="w-10 h-10 rounded-xl bg-green-500/15 flex items-center justify-center text-green-400">
@@ -437,11 +491,7 @@ const isDashboard = dashboardRoutes.some((path) =>
                   className="lg:block hidden hover:bg-sky-500/20 py-3 px-3 rounded-full text-gray-300 hover:text-white transition cursor-pointer"
                 >
                   <MessageCircle size={16} />
-                </button>
-
-                
-
-                                
+                </button>             
               <div
                 className={`fixed top-0 right-0 h-screen sm:w-[420px] w-[100%] z-[60]
                 bg-[#070c1a] border-l border-white/10
@@ -595,38 +645,49 @@ const isDashboard = dashboardRoutes.some((path) =>
                 >
                   <LogOut size={16} />
               </Link>
+              {/* MOBILE MENU BUTTON */}
+              <button
+                onClick={() => setOpen(true)}
+                className="lg:hidden text-white text-2xl"
+              >
+                <Menu size={18} />
+              </button>
               
             </div>
           </div>
-
+ 
            )}
-
-          {/* MOBILE MENU BUTTON */}
-          <button
-            onClick={() => setOpen(true)}
-            className="lg:hidden text-white text-2xl"
-          >
-            ☰
-          </button>
-
-
 
         </div>
       </header>
 
       {/* MOBILE DRAWER (UNCHANGED) */}
       {open && (
-        <div className="fixed inset-0 z-50 bg-[#070c1a]">
+
+        
+        <div
+            className={`fixed top-0 right-0 h-full w-3/4 bg-[#070c1a] z-50
+                transform-gpu transition-transform duration-300 ease-in-out
+                ${open ? "translate-x-0" : "translate-x-full"}`}
+          >
+
           <div className="flex items-center justify-between px-4 h-16 border-b border-white/10">
             <span className="text-white font-semibold text-lg">CashFlow</span>
-            <button onClick={() => setOpen(false)} className="text-white text-2xl">
-              ✕
+            <button onClick={() => setOpen(false)} className="text-white">
+              <CircleX size={16} />
             </button>
           </div>
 
 
         
-          <nav className="flex flex-col gap-4 px-4 py-2 text-[14px] text-gray-400 text-lg">
+          <nav className="flex flex-col gap-4 px-4 py-2 text-[14px] text-gray-400 text-lg"
+           onClick={(e) => {
+            if (e.target.tagName === "A") {
+              setOpen(false);
+            }
+          }}
+          >
+            
             {!isDashboard ? (
               <>
                 <Link to="/" className="hover:text-white hover:bg-cyan-500/10 py-1 px-1 rounded-xl">Home</Link>
@@ -637,16 +698,48 @@ const isDashboard = dashboardRoutes.some((path) =>
               </>
               ) : (
               <>
-              <Link to="/dashboard" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Dashboard</Link>
-              <Link to="/featured-offers-pages" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Featured Offers</Link>
+              <Link to="/dashboard"
+                onClick={handleMenuClose}
+              className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
+                <span className="flex items-center gap-1"><LayoutDashboard size={16} /> Dashboard</span>
+              </Link>
+              <Link to="/featured-offers-pages"
+              onClick={handleMenuClose}
+              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
+                <span className="flex items-center gap-1"><ClipboardCheck size={16} /> Featured Offers</span>
+              </Link>
               
-              <Link to="/cashout" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Castout</Link>
-              <Link to="/rewards" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Rewards</Link>
-              <Link to="/leaderboard" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Leaderboard</Link>
+              <Link to="/cashout"
+              onClick={handleMenuClose}
+              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
+                <span className="flex items-center gap-1"><Wallet size={16} /> Castout</span>
+              </Link>
+              <Link to="/rewards" 
+              onClick={handleMenuClose}
+              className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
+                <span className="flex items-center gap-1"><Gift size={16} /> Rewards</span>
+              </Link>
+              <Link to="/leaderboard"
+              onClick={handleMenuClose}
+              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
+                <span className="flex items-center gap-1"><Crown size={16} /> Leaderboard</span>
+              </Link>
               
-              <Link to="/profile" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Profile</Link>
-              <Link to="/settings" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Settings</Link>
-              <Link to="/" className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">Logout</Link>
+              <Link to="/profile" 
+              onClick={handleMenuClose}
+              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
+                <span className="flex items-center gap-1"><UserCog size={16} /> Profile</span>
+              </Link>
+              <Link to="/settings" 
+              onClick={handleMenuClose}
+              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
+                <span className="flex items-center gap-1"><Settings2 size={16} /> Settings</span>
+              </Link>
+              <Link to="/" 
+              onClick={handleMenuClose}
+              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
+                <span className="flex items-center gap-1"><LogOut size={16} /> Logout</span>
+              </Link>
 
               </>
             )}
@@ -676,3 +769,4 @@ function CommunityMessage({ avatar, name, time, text }) {
     </div>
   );
 }
+

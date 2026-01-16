@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TABS = ["completed", "pending", "started", "withdrawals", "rejected"];
+const TABS = ["completed", "pending", "started", "rejected", "withdrawals"];
 
 const DATA = {
   completed: [

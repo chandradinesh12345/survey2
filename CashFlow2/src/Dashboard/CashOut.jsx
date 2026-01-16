@@ -193,38 +193,38 @@ export const CashOut = () => {
 
                     <div className="bg-[#0b1220] rounded-2xl border border-white/10 overflow-hidden">
 
-                        <div className="flex justify-between items-center px-6 py-5 border-b border-white/10">
+                        <div className="flex justify-between items-center hover:bg-white/5 transition px-6 py-2 border-b border-white/10">
                         <div>
-                            <p className="text-xl">$50.00</p>
+                            <p className="text-md">$50.00</p>
                             <p className="text-sm text-gray-400">
                             <span className="text-cyan-400">PayPal</span> · Dec 24
                             </p>
                         </div>
-                        <span className="flex items-center gap-2 bg-green-500/15 text-green-400 px-4 py-1 rounded-full">
+                        <span className="flex items-center gap-2 bg-green-500/15 text-green-400 px-2 text-sm py-1 rounded-full">
                             <CheckCircle className="w-4 h-4" /> Completed
                         </span>
                         </div>
 
-                        <div className="flex justify-between items-center px-6 py-5 border-b border-white/10">
+                        <div className="flex justify-between items-center hover:bg-white/5 transition px-6 py-2 border-b border-white/10">
                         <div>
-                            <p className="text-xl">$25.00</p>
+                            <p className="text-md">$25.00</p>
                             <p className="text-sm text-gray-400">
                             <span className="text-yellow-400">Bitcoin</span> · Dec 22
                             </p>
                         </div>
-                        <span className="flex items-center gap-2 bg-yellow-500/15 text-yellow-400 px-4 py-1 rounded-full">
+                        <span className="flex items-center gap-2 bg-yellow-500/15 text-yellow-400 px-2 py-1 text-sm rounded-full">
                             <Clock className="w-4 h-4" /> Pending
                         </span>
                         </div>
 
-                        <div className="flex justify-between items-center px-6 py-5">
+                        <div className="flex justify-between items-center hover:bg-white/5 transition px-6 py-2">
                         <div>
-                            <p className="text-xl">$100.00</p>
+                            <p className="text-md">$100.00</p>
                             <p className="text-sm text-gray-400">
                             <span className="text-green-400">UPI</span> · Dec 18
                             </p>
                         </div>
-                        <span className="flex items-center gap-2 bg-green-500/15 text-green-400 px-4 py-1 rounded-full">
+                        <span className="flex items-center gap-2 bg-green-500/15 text-green-400 px-2 py-1 text-sm rounded-full">
                             <CheckCircle className="w-4 h-4" /> Completed
                         </span>
                         </div>
