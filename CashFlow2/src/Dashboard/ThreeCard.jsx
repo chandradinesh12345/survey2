@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const ThreeCard = () => {
   return (
     <>
-        <section className='mt-[100px]'>
+        <section className='mt-12'>
             <div className='container mx-auto px-4'>
                 <h4 className='text-2xl md:text-3xl font-[600] text-white mb-2'>Welcome back, John! 👋</h4>
                 <p className='text-muted-foreground text-gray-400'>You're doing great! Keep completing offers to reach your goals.</p>
@@ -25,13 +25,12 @@ export const ThreeCard = () => {
                         </div>
                         </div>
 
-                        <Link to="/cashout"
-                        className="mt-6 block w-full bg_gradient from-cyan-500 to-teal-400
-                        text-black font-semibold py-2 rounded-xl
-                        hover:opacity-90 hover:shadow-lg text-sm text-center hover:shadow-cyan-500/30
-                        transition-all"
-                        >
-                        Cash Out →
+                        <Link to="/cashout" className="w-full mt-3 group cursor-pointer mr-[10px] relative h-12 px-8 rounded-xl bg_gradient text-black font-semibold inline-flex items-center justify-center gap-2 overflow-hidden">
+              
+                        <span className="relative z-10">Cash Out →</span>
+                        {/* SHINE EFFECT */}
+                        <span className="absolute top-0 -left-1/2 w-1/2 h-full bg-white/40 skew-x-12 
+                                        group-hover:left-full transition-all duration-700"></span>
                         </Link>
                     </div>
 

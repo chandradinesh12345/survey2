@@ -110,9 +110,15 @@ export const Login = ({ openForgot, openSignup }) => {
 
 
           {/* Button */}
-          <Link to="/dashboard" className="w-full h-12 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition">
-            Sign In →
-          </Link>
+        
+
+          <Link to="/dashboard" className="w-full mt-3 group cursor-pointer mr-[10px] relative h-12 px-8 rounded-xl bg_gradient text-black font-semibold inline-flex items-center justify-center gap-2 overflow-hidden">
+              
+              <span className="relative z-10">Sign In →</span>
+              {/* SHINE EFFECT */}
+              <span className="absolute top-0 -left-1/2 w-1/2 h-full bg-white/40 skew-x-12 
+                              group-hover:left-full transition-all duration-700"></span>
+            </Link>
           
           <button
               className="group relative h-12 w-full px-6 rounded-xl

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react"; // ✅ ADDED useRef, useEffect
 import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 import {
@@ -17,13 +18,19 @@ import {
   UserCog,
   Settings2,
   ClipboardCheck,
+  X,
 } from "lucide-react";
 import { Login } from "../components/Account/Login"; // path apne hisaab se
 import { ForgotPassword } from "../components/Account/ForgotPassword";
 import { Signup } from "../components/Account/Signup";
+import { EarningsMarquee } from "../Dashboard/EarningsMarquee"
 
 
 export const Header = () => {
+
+
+
+
 
 
 
@@ -37,7 +44,26 @@ export const Header = () => {
 const [chatTab, setChatTab] = useState("community");
 
 
+
 const CHAT_WIDTH = 420;
+
+const menuItemVariants = {
+  hidden: {
+    opacity: 0,
+    y: -12,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    x: [0, -8, 8, -5, 5, 0], // 👈 LEFT RIGHT SHAKE
+    transition: {
+      duration: 0.9,          // 🔥 SLOW
+      ease: "easeInOut",
+    },
+  },
+};
+
+
 
 useEffect(() => {
   if (window.innerWidth >= 1024) {
@@ -105,16 +131,6 @@ const handleMenuClose = () => {
   return (
 
     <>
-
-    {/* OVERLAY */}
-    <div
-      onClick={() => setOpen(false)}
-      className={`fixed inset-0 bg-black/60 z-40
-                  transition-opacity duration-300
-                  ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-    />
-
-
 
     {/* phone view */}
       <button
@@ -646,12 +662,20 @@ const handleMenuClose = () => {
                   <LogOut size={16} />
               </Link>
               {/* MOBILE MENU BUTTON */}
-              <button
+              {/* <button
                 onClick={() => setOpen(true)}
                 className="lg:hidden text-white text-2xl"
               >
                 <Menu size={18} />
-              </button>
+              </button> */}
+
+              <button
+              className="lg:hidden p-2 text-white rounded-lg hover:bg-muted"
+              onClick={() => setOpen(!open)}
+            >
+              {open ? <X size={18} /> : <Menu size={18} />}
+            </button>
+
               
             </div>
           </div>
@@ -662,91 +686,162 @@ const handleMenuClose = () => {
       </header>
 
       {/* MOBILE DRAWER (UNCHANGED) */}
-      {open && (
-
+   
+           
         
-        <div
-            className={`fixed top-0 right-0 h-full w-3/4 bg-[#070c1a] z-50
-                transform-gpu transition-transform duration-300 ease-in-out
-                ${open ? "translate-x-0" : "translate-x-full"}`}
-          >
+       <AnimatePresence>
+  {open && (
+    <motion.div
+      initial={{ height: 0 }}
+      animate={{ height: "auto" }}
+      exit={{ height: 0 }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      className="fixed top-[65px] left-0 right-0 z-50 bg-[#0a101e] border-b overflow-hidden"
+    >
+      <nav
+        className="flex flex-col gap-2 px-4 py-2 text-gray-400 text-sm"
+        initial="hidden"
+        animate="show"
+        variants={{
+          show: {
+            transition: {
+              staggerChildren: 0.06, // 👈 ek-ek karke (premium)
+            },
+          },
+        }}
+      >
 
-          <div className="flex items-center justify-between px-4 h-16 border-b border-white/10">
-            <span className="text-white font-semibold text-lg">CashFlow</span>
-            <button onClick={() => setOpen(false)} className="text-white">
-              <CircleX size={16} />
-            </button>
-          </div>
+        {!isDashboard ? (
+          <>
+            <Link to="/" className="hover:text-white hover:bg-cyan-500/10 py-1 px-1 rounded-xl">
+              Home
+            </Link>
+            <Link to="/privacy-policy" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
+              Terms of Service
+            </Link>
+            <Link to="/contact-us" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
+              Contact Us
+            </Link>
+          </>
+        ) : (
+          <>
+            {/* DASHBOARD */}
+            <motion.div
+              variants={menuItemVariants}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 0.15 }}
+              style={{ lineHeight: "10px" }}
+            >
+              <Link to="/dashboard" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
+                <span className="flex items-center gap-2">
+                  <LayoutDashboard size={16} /> Dashboard
+                </span>
+              </Link>
+            </motion.div>
+
+            {/* FEATURED */}
+            <motion.div
+              variants={menuItemVariants}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 0.30 }}
+              style={{ lineHeight: "10px" }}
+            >
+              <Link to="/featured-offers-pages" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
+                <span className="flex items-center gap-2">
+                  <ClipboardCheck size={16} /> Featured Offers
+                </span>
+              </Link>
+            </motion.div>
+
+            {/* CASHOUT */}
+            <motion.div
+              variants={menuItemVariants}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 0.45 }}
+              style={{ lineHeight: "10px" }}
+            >
+              <Link to="/cashout" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
+                <span className="flex items-center gap-2">
+                  <Wallet size={16} /> Cashout
+                </span>
+              </Link>
+            </motion.div>
+
+            {/* REWARDS */}
+            <motion.div
+              variants={menuItemVariants}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 0.60 }}
+              style={{ lineHeight: "10px" }}
+            >
+              <Link to="/rewards" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
+                <span className="flex items-center gap-2">
+                  <Gift size={16} /> Rewards
+                </span>
+              </Link>
+            </motion.div>
+
+            {/* LEADERBOARD */}
+            <motion.div
+              variants={menuItemVariants}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 0.75 }}
+              style={{ lineHeight: "10px" }}
+            >
+              <Link to="/leaderboard" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
+                <span className="flex items-center gap-2">
+                  <Crown size={16} /> Leaderboard
+                </span>
+              </Link>
+            </motion.div>
+
+            {/* PROFILE */}
+            <motion.div
+              variants={menuItemVariants}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 0.90 }}
+              style={{ lineHeight: "10px" }}
+            >
+              <Link to="/profile" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
+                <span className="flex items-center gap-2">
+                  <UserCog size={16} /> Profile
+                </span>
+              </Link>
+            </motion.div>
+
+            {/* LOGOUT */}
+            <motion.div
+              variants={menuItemVariants}
+              initial="hidden"
+              animate="show"
+              transition={{ delay: 1.05 }}
+              style={{ lineHeight: "10px" }}
+            >
+              <Link to="/" onClick={handleMenuClose} className="px-4 py-1 rounded-xl text-[#dc2828]">
+                <span className="flex items-center gap-2">
+                  <LogOut size={16} /> Logout
+                </span>
+              </Link>
+            </motion.div>
+          </>
+        )}
+      </nav>
+    </motion.div>
+  )}
+</AnimatePresence>
 
 
-        
-          <nav className="flex flex-col gap-4 px-4 py-2 text-[14px] text-gray-400 text-lg"
-           onClick={(e) => {
-            if (e.target.tagName === "A") {
-              setOpen(false);
-            }
-          }}
-          >
-            
-            {!isDashboard ? (
-              <>
-                <Link to="/" className="hover:text-white hover:bg-cyan-500/10 py-1 px-1 rounded-xl">Home</Link>
-                <Link to="/privacy-policy" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Privacy Policy</Link>
-                <Link to="/terms-of-service" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Terms of Service</Link>
-                <Link to="/contact-us" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">Contact Us</Link>
-                
-              </>
-              ) : (
-              <>
-              <Link to="/dashboard"
-                onClick={handleMenuClose}
-              className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
-                <span className="flex items-center gap-1"><LayoutDashboard size={16} /> Dashboard</span>
-              </Link>
-              <Link to="/featured-offers-pages"
-              onClick={handleMenuClose}
-              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
-                <span className="flex items-center gap-1"><ClipboardCheck size={16} /> Featured Offers</span>
-              </Link>
-              
-              <Link to="/cashout"
-              onClick={handleMenuClose}
-              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
-                <span className="flex items-center gap-1"><Wallet size={16} /> Castout</span>
-              </Link>
-              <Link to="/rewards" 
-              onClick={handleMenuClose}
-              className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
-                <span className="flex items-center gap-1"><Gift size={16} /> Rewards</span>
-              </Link>
-              <Link to="/leaderboard"
-              onClick={handleMenuClose}
-              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
-                <span className="flex items-center gap-1"><Crown size={16} /> Leaderboard</span>
-              </Link>
-              
-              <Link to="/profile" 
-              onClick={handleMenuClose}
-              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
-                <span className="flex items-center gap-1"><UserCog size={16} /> Profile</span>
-              </Link>
-              <Link to="/settings" 
-              onClick={handleMenuClose}
-              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
-                <span className="flex items-center gap-1"><Settings2 size={16} /> Settings</span>
-              </Link>
-              <Link to="/" 
-              onClick={handleMenuClose}
-              className="hover:text-white hover:bg-green-500/10 px-1 rounded-xl">
-                <span className="flex items-center gap-1"><LogOut size={16} /> Logout</span>
-              </Link>
-
-              </>
-            )}
-
-          </nav>
-        </div>
-      )}
+   
+      <EarningsMarquee />
     </>
   );
 };
@@ -769,4 +864,3 @@ function CommunityMessage({ avatar, name, time, text }) {
     </div>
   );
 }
-

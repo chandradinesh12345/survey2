@@ -37,9 +37,13 @@ export const ForgotPassword = ({ backToLogin }) => {
        
 
           {/* Button */}
-          <button className="w-full h-12 cursor-pointer rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 text-black font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition">
-            Send Reset Link →
-          </button>
+          <button className="w-full mt-3 group cursor-pointer mr-[10px] relative h-12 px-8 rounded-xl bg_gradient text-black font-semibold inline-flex items-center justify-center gap-2 overflow-hidden">
+              
+              <span className="relative z-10">Send Reset Link →</span>
+              {/* SHINE EFFECT */}
+              <span className="absolute top-0 -left-1/2 w-1/2 h-full bg-white/40 skew-x-12 
+                              group-hover:left-full transition-all duration-700"></span>
+            </button>
 
           {/* Signup */}
           <p className="text-sm text-gray-400 mt-6">

@@ -175,13 +175,12 @@ export const CashOut = () => {
                         border border-white/10 focus:border-cyan-400 focus:outline-none"
                         />
 
-                        <button
-                        className="w-full bg_gradient from-cyan-500 to-teal-400
-                        text-black font-semibold py-3 rounded-xl
-                        hover:shadow-[0_0_60px_rgba(56,189,248,0.6)]
-                        transition"
-                        >
-                        Request Cashout →
+                        <button className="w-full mt-3 group cursor-pointer mr-[10px] relative h-12 px-8 rounded-xl bg_gradient text-black font-semibold inline-flex items-center justify-center gap-2 overflow-hidden">
+              
+                        <span className="relative z-10">Request Cashout →</span>
+                        {/* SHINE EFFECT */}
+                        <span className="absolute top-0 -left-1/2 w-1/2 h-full bg-white/40 skew-x-12 
+                                        group-hover:left-full transition-all duration-700"></span>
                         </button>
                     </div>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from "react";
 import {
   DollarSign,
   Users,
@@ -12,9 +12,14 @@ import {
 } from "lucide-react";
 import userIcon from '../assets/img/user_icon.jpg'
 
+import ProfilePopup from "./ProfilePopup";
 import { ActivityHistory } from './ActivityHistory';
 
+
+
+
 export const Profile = () => {
+  const [profileOpen, setProfileOpen] = useState(false);
   return (
     <>
     
@@ -65,10 +70,22 @@ export const Profile = () => {
             </div>
 
 
-          <Link to="/settings" className="flex items-center cursor-pointer gap-2 px-5 py-2 rounded-xl border border-white/15 hover:bg-white/5 transition">
+          <button 
+          onClick={() => {
+          console.log("clicked");
+          setProfileOpen(true);
+        }}
+          className="flex w-38 md:m-0 m-auto items-center cursor-pointer gap-2 px-5 py-2 rounded-xl border border-white/15 hover:bg-white/5 transition">
             <Settings size={16} />
             Edit Profile
-          </Link>
+          </button>
+          {/* PROFILE POPUP */}
+      <ProfilePopup
+        open={profileOpen}
+        onClose={() => setProfileOpen(false)}
+      />
+          
+
         </div>
 
         {/* STATS */}
