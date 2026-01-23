@@ -560,7 +560,7 @@ const handleMenuClose = () => {
 
                 {/* MESSAGES */}
                 <div
-                  className="flex-1 min-h-0 px-5 py-4 space-y-6 overflow-y-auto
+                  className="flex-1 min-h-0 px-3 py-3 space-y-6 overflow-y-auto
                   scrollbar-thin scrollbar-thumb-white/10
                   scrollbar-thumb-rounded-full scrollbar-track-transparent"
                 >
@@ -568,27 +568,34 @@ const handleMenuClose = () => {
                   {/* ================= COMMUNITY CHAT ================= */}
                   {chatTab === "community" && (
                     <>
-                      <CommunityMessage
-                        avatar="SM"
-                        name="Sarah M."
-                        time="10:30 AM"
-                        text="Just completed the SurveyJunkie offer, got $5 instantly! 🎉"
-                      />
+                      <div className="max-w-md mx-auto bg-[#070b14] rounded-3xl">
+      
+                        <CommunityMessage
+                          avatar="SM"
+                          name="Sarah M."
+                          text="Just completed the SurveyJunkie offer, got $5 instantly! 🎉"
+                        />
 
-                      <CommunityMessage
-                        avatar="MD"
-                        name="Mike D."
-                        time="10:32 AM"
-                        text="Anyone tried the new GameRewards offer?"
-                      />
+                        <CommunityMessage
+                          avatar="MD"
+                          name="Mike D."
+                          role="Mod"
+                          text="Anyone tried the new GameRewards offer?"
+                        />
 
-                      <div className="flex justify-end items-end gap-3">
-                        <div className="bg-cyan-500 text-black text-sm px-4 py-3 rounded-2xl max-w-[260px]">
-                          Yeah it's great! Made $8 yesterday
-                        </div>
-                        <div className="w-9 h-9 rounded-full bg-[#1e293b] flex items-center justify-center text-white">
-                          AD
-                        </div>
+                        <CommunityMessage
+                          avatar="AK"
+                          name="Alex K."
+                          role="Admin"
+                          text="Pro tip: The video ads are quick and easy for consistent earnings"
+                        />
+
+                        <CommunityMessage
+                          avatar="LR"
+                          name="Lisa R."
+                          text="Just hit $100 this week! 💰"
+                        />
+
                       </div>
                     </>
                   )}
@@ -597,34 +604,32 @@ const handleMenuClose = () => {
                   {chatTab === "support" && (
                     <>
                       {/* SYSTEM / SUPPORT MESSAGE (ONLY HERE) */}
-                      <div className="flex gap-3">
-                        <div className="w-9 h-9 rounded-full bg-green-500 flex items-center justify-center text-black font-semibold">
-                          CS
-                        </div>
-                        <div className="bg-green-500/10 text-white text-sm px-4 py-3 rounded-2xl max-w-[300px]">
-                          Hi 👋 Welcome to CashFlow support. How can I help you today?
-                        </div>
+                      <div class="flex gap-2.5 bg-blue-500/10 px-4 py-3 rounded-2xl mb-3">
+                          <span class="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8 flex-shrink-0">
+                            <span class="flex h-full w-full items-center justify-center rounded-full text-xs font-semibold bg_gradient text-white">SA</span>
+                          </span>
+                          <div class="flex-1 min-w-0">
+                              <div class="flex items-center gap-1.5 mb-0.5"><span class="text-sm font-semibold text_color_brad">Support Agent</span>
+                                  <div class="inline-flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-[10px] text-xs px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-2.5 h-2.5 mr-0.5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+                                    Staff</div>
+                              </div>
+                              <p class="text-gray-400 text-sm">Hi! Welcome to CashewCash support. How can I help you today?</p>
+                          </div>
                       </div>
-
-                      {/* USER MESSAGE */}
-                      <div className="flex justify-end items-end gap-3">
-                        <div className="bg-cyan-500 text-black text-sm px-4 py-3 rounded-2xl max-w-[260px]">
-                          I have a question about my withdrawal
+                      <div class="flex gap-2.5 bg-blue-500/10 px-4 py-3 rounded-2xl mb-3">
+                            <span class="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8 flex-shrink-0">
+                              <span class="flex h-full w-full items-center justify-center rounded-full text-xs font-semibold bg_gradient text-white">SA</span>
+                            </span>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-1.5 mb-0.5"><span class="text-sm font-semibold text_color_brad">Support Agent</span>
+                                    <div class="inline-flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-[10px] text-xs px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield w-2.5 h-2.5 mr-0.5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+                                      Staff</div>
+                                </div>
+                                <p class="text-gray-400 text-sm">Hi! Welcome to CashewCash support. How can I help you today?</p>
+                            </div>
                         </div>
-                        <div className="w-9 h-9 rounded-full bg-[#1e293b] flex items-center justify-center text-white">
-                          AD
-                        </div>
-                      </div>
-
-                      {/* SUPPORT REPLY */}
-                      <div className="flex gap-3">
-                        <div className="w-9 h-9 rounded-full bg-green-500 flex items-center justify-center text-black font-semibold">
-                          CS
-                        </div>
-                        <div className="bg-green-500/10 text-white text-sm px-4 py-3 rounded-2xl max-w-[300px]">
-                          Sure 👍 Please tell me your registered email or transaction ID.
-                        </div>
-                      </div>
                     </>
                   )}
                 </div>
@@ -847,20 +852,38 @@ const handleMenuClose = () => {
 };
 
 
-function CommunityMessage({ avatar, name, time, text }) {
+const CommunityMessage = ({ avatar, name, time, text, role }) => {
   return (
-    <div className="flex gap-3">
-      <div className="w-9 h-9 rounded-full bg-[#1e293b] flex items-center justify-center text-white">
-        {avatar}
-      </div>
-      <div>
-        <p className="text-sm text-gray-400 mb-1">
-          {name} · {time}
-        </p>
-        <div className="bg-[#111a33] text-sm text-white px-4 py-3 rounded-2xl max-w-[280px]">
-          {text}
+    <div className="bg-[#0b1224] border border-white/5 rounded-2xl px-2 py-2 mb-2">
+      <div className="flex gap-3 items-start">
+        {/* Avatar */}
+        <div className="w-10 h-10 rounded-full bg-[#1e293b] flex items-center justify-center text-gray-300 font-semibold">
+          {avatar}
+        </div>
+
+        {/* Content */}
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <p className="text-white text-sm font-medium">{name}</p>
+
+            {role && (
+              <span
+                className={`text-xs px-2 py-0.5 rounded-full
+                ${
+                  role === "Admin"
+                    ? "bg-red-500/20 text-red-400"
+                    : "bg-cyan-500/20 text-cyan-400"
+                }`}
+              >
+                {role}
+              </span>
+            )}
+          </div>
+
+          <p className="text-gray-400 text-sm">{text}</p>
         </div>
       </div>
     </div>
   );
-}
+};
+
