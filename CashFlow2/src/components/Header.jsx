@@ -12,7 +12,9 @@ import {
   MessageSquareText,
   Menu,
   LayoutDashboard,
+  UserPen,
   Crown,
+  SquarePercent,
   Gift,
   CircleX,
   UserCog,
@@ -675,11 +677,12 @@ const handleMenuClose = () => {
               </button> */}
 
               <button
-              className="lg:hidden p-2 text-white rounded-lg hover:bg-muted"
-              onClick={() => setOpen(!open)}
+              className="lg:hidden p-2 text-white"
+              onClick={() => setOpen(true)}
             >
-              {open ? <X size={18} /> : <Menu size={18} />}
+              <Menu size={18} />
             </button>
+
 
               
             </div>
@@ -693,157 +696,75 @@ const handleMenuClose = () => {
       {/* MOBILE DRAWER (UNCHANGED) */}
    
            
-        
-       <AnimatePresence>
-  {open && (
-    <motion.div
-      initial={{ height: 0 }}
-      animate={{ height: "auto" }}
-      exit={{ height: 0 }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-[65px] left-0 right-0 z-50 bg-[#0a101e] border-b overflow-hidden"
-    >
-      <nav
-        className="flex flex-col gap-2 px-4 py-2 text-gray-400 text-sm"
-        initial="hidden"
-        animate="show"
-        variants={{
-          show: {
-            transition: {
-              staggerChildren: 0.06, // 👈 ek-ek karke (premium)
-            },
-          },
-        }}
-      >
-
-        {!isDashboard ? (
+        <AnimatePresence>
+        {open && (
           <>
-            <Link to="/" className="hover:text-white hover:bg-cyan-500/10 py-1 px-1 rounded-xl">
-              Home
-            </Link>
-            <Link to="/privacy-policy" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
-              Privacy Policy
-            </Link>
-            <Link to="/terms-of-service" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
-              Terms of Service
-            </Link>
-            <Link to="/contact-us" className="hover:text-white hover:bg-green-500/10 py-1 px-1 rounded-xl">
-              Contact Us
-            </Link>
-          </>
-        ) : (
-          <>
-            {/* DASHBOARD */}
+            {/* BACKDROP */}
             <motion.div
-              variants={menuItemVariants}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: 0.15 }}
-              style={{ lineHeight: "10px" }}
-            >
-              <Link to="/dashboard" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
-                <span className="flex items-center gap-2">
-                  <LayoutDashboard size={16} /> Dashboard
-                </span>
-              </Link>
-            </motion.div>
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black z-40"
+              onClick={() => setOpen(false)}
+            />
 
-            {/* FEATURED */}
+            {/* DRAWER */}
             <motion.div
-              variants={menuItemVariants}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: 0.30 }}
-              style={{ lineHeight: "10px" }}
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed top-0 left-0 h-screen w-[80%] max-w-[320px] z-50
+                        bg-[#0a101e] border-r border-white/10
+                        flex flex-col"
             >
-              <Link to="/featured-offers-pages" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
-                <span className="flex items-center gap-2">
-                  <ClipboardCheck size={16} /> Featured Offers
-                </span>
-              </Link>
-            </motion.div>
 
-            {/* CASHOUT */}
-            <motion.div
-              variants={menuItemVariants}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: 0.45 }}
-              style={{ lineHeight: "10px" }}
-            >
-              <Link to="/cashout" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
-                <span className="flex items-center gap-2">
-                  <Wallet size={16} /> Cashout
-                </span>
-              </Link>
-            </motion.div>
+              {/* HEADER */}
+              <div className="h-16 flex items-center justify-between px-4 border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg_gradient from-cyan-400 to-green-400 flex items-center justify-center text-black font-bold">
+                    $
+                  </div>
+                  <span className="text-white font-semibold text-lg lg:block hidden">
+                    CashFlow
+                  </span>
+                </div>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="text-white text-xl"
+                >
+                  ✕
+                </button>
+              </div>
 
-            {/* REWARDS */}
-            <motion.div
-              variants={menuItemVariants}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: 0.60 }}
-              style={{ lineHeight: "10px" }}
-            >
-              <Link to="/rewards" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
-                <span className="flex items-center gap-2">
-                  <Gift size={16} /> Rewards
-                </span>
-              </Link>
-            </motion.div>
+              {/* NAV */}
+              <nav className="flex flex-col gap-2 px-4 py-4 text-gray-300 text-sm">
 
-            {/* LEADERBOARD */}
-            <motion.div
-              variants={menuItemVariants}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: 0.75 }}
-              style={{ lineHeight: "10px" }}
-            >
-              <Link to="/leaderboard" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
-                <span className="flex items-center gap-2">
-                  <Crown size={16} /> Leaderboard
-                </span>
-              </Link>
-            </motion.div>
+                {!isDashboard ? (
+                  <>
+                    <Link onClick={() => setOpen(false)} to="/">Home</Link>
+                    <Link onClick={() => setOpen(false)} to="/privacy-policy">Privacy Policy</Link>
+                    <Link onClick={() => setOpen(false)} to="/terms-of-service">Terms</Link>
+                    <Link onClick={() => setOpen(false)} to="/contact-us">Contact</Link>
+                  </>
+                ) : (
+                  <>
+                    <Link onClick={() => setOpen(false)} to="/dashboard" className="p-2"><span className="flex gap-1 items-center"><LayoutDashboard size={16} /> Dashboard</span></Link>
+                    <Link onClick={() => setOpen(false)} to="/featured-offers-pages" className="p-2"><span className="flex gap-1 items-center"><SquarePercent size={16} /> Featured Offers</span></Link>
+                    <Link onClick={() => setOpen(false)} to="/cashout" className="p-2"><span className="flex gap-1 items-center"><Wallet size={16} /> Cashout</span></Link>
+                    <Link onClick={() => setOpen(false)} to="/rewards" className="p-2"><span className="flex gap-1 items-center"><Gift size={16} /> Rewards</span></Link>
+                    <Link onClick={() => setOpen(false)} to="/leaderboard" className="p-2"><span className="flex gap-1 items-center"><Crown size={16} /> Leaderboard</span></Link>
+                    <Link onClick={() => setOpen(false)} to="/profile" className="p-2"><span className="flex gap-1 items-center"><UserPen size={16} /> Profile</span></Link>
+                    <Link onClick={() => setOpen(false)} to="/" className="text-red-400 p-2"><span className="flex gap-1 items-center"><LogOut size={16} /> Logout</span></Link>
+                  </>
+                )}
 
-            {/* PROFILE */}
-            <motion.div
-              variants={menuItemVariants}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: 0.90 }}
-              style={{ lineHeight: "10px" }}
-            >
-              <Link to="/profile" onClick={handleMenuClose} className="px-4 py-1 rounded-xl">
-                <span className="flex items-center gap-2">
-                  <UserCog size={16} /> Profile
-                </span>
-              </Link>
-            </motion.div>
-
-            {/* LOGOUT */}
-            <motion.div
-              variants={menuItemVariants}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: 1.05 }}
-              style={{ lineHeight: "10px" }}
-            >
-              <Link to="/" onClick={handleMenuClose} className="px-4 py-1 rounded-xl text-[#dc2828]">
-                <span className="flex items-center gap-2">
-                  <LogOut size={16} /> Logout
-                </span>
-              </Link>
+              </nav>
             </motion.div>
           </>
         )}
-      </nav>
-    </motion.div>
-  )}
-</AnimatePresence>
-
+      </AnimatePresence>
 
    
       <EarningsMarquee />
